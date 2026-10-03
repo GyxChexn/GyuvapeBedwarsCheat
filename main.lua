@@ -86,7 +86,7 @@ local function FinishLoading()
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/GyxChexn/GyuvapeBedwarsCheat/main/main.lua', true))()
             ]]
             if shared.VapeCustomProfile then
-                TeleportScript = "shared.VapeCustomProfile = \"" .. tostring(shared.VapeCustomProfile) .. "\\n\"" .. TeleportScript
+                TeleportScript = ('shared.VapeCustomProfile = "' .. tostring(shared.VapeCustomProfile) .. '"\n') .. TeleportScript
             end
             vape:Save()
             queue_on_teleport(TeleportScript)
