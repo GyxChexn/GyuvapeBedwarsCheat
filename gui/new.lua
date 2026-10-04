@@ -418,23 +418,28 @@ do
         local Asset: string? = AssetCache[FilePath]
 
         if Asset == nil then
-            Asset = DownloadFile(FilePath, function()
-                local Success, Result = pcall(getcustomasset, FilePath)
-                if Success then
-                    return Result
-                end
+            -- check rbxassetid table first, skip DownloadFile entirely if found
+            if VapeAssets[FilePath] then
+                Asset = VapeAssets[FilePath]
+            else
+                Asset = DownloadFile(FilePath, function()
+                    local Success, Result = pcall(getcustomasset, FilePath)
+                    if Success then
+                        return Result
+                    end
 
-                if not AssetFailed then
-                    AssetFailed = true
-                    task.spawn(function()
-                        repeat task.wait() until vape.Loaded ~= false
-                        if vape.Loaded then
-                            vape:CreateNotification("Vape", `Your executor could not load custom assets, so icons and fonts use backups ({Result})`, 15, "warning")
-                        end
-                    end)
-                end
-                return VapeAssets[FilePath] or ""
-            end)
+                    if not AssetFailed then
+                        AssetFailed = true
+                        task.spawn(function()
+                            repeat task.wait() until vape.Loaded ~= false
+                            if vape.Loaded then
+                                vape:CreateNotification("Vape", `Your executor could not load custom assets, so icons and fonts use backups ({Result})`, 15, "warning")
+                            end
+                        end)
+                    end
+                    return VapeAssets[FilePath] or ""
+                end)
+            end
             AssetCache[FilePath] = Asset
         end
 
