@@ -1,4 +1,3 @@
--- Gyuvape Main Entrypoint Loader (GitHub Deployed)
 repeat
     task.wait()
 until game:IsLoaded()
@@ -13,6 +12,7 @@ if shared.vape then
 end
 
 local repoUrl = "https://raw.githubusercontent.com/GyxChexn/GyuvapeBedwarsCheat/main/"
+local prefix = "GyuvapeBedwarsCheat/"
 
 local isfile = isfile or function(FilePath: string)
     local Success, Contents = pcall(function()
@@ -44,8 +44,9 @@ end
 local function DownloadFile(FilePath: string, Reader)
     if not isfile(FilePath) then
         EnsureDirectory(FilePath)
+        local remotePath = FilePath:gsub("^" .. prefix, "")
         local Success, Response = pcall(function()
-            return game:HttpGet(repoUrl .. FilePath, true)
+            return game:HttpGet(repoUrl .. remotePath, true)
         end)
         if not Success or Response == "404: Not Found" then
             error("Failed to download " .. FilePath .. ": " .. tostring(Response))
@@ -98,21 +99,21 @@ local function FinishLoading()
     end
 end
 
-if not isfile("gui.txt") then
-    writefile("gui.txt", "new")
+if not isfile(prefix .. "gui.txt") then
+    writefile(prefix .. "gui.txt", "new")
 end
 local Gui: string = "new"
 
-vape, RunPremium = loadstring(DownloadFile("gui/" .. Gui .. ".lua"), "gui")({})
+vape, RunPremium = loadstring(DownloadFile(prefix .. "gui/" .. Gui .. ".lua"), "gui")({})
 shared.vape = vape
 shared.vapesmooth = false
 _G.vape = vape
 getgenv().used_init = true
 
 if not shared.VapeIndependent then
-    pcall(DownloadFile, "games/universal.lua")
-    if isfile("games/universal.lua") then
-        loadstring(readfile("games/universal.lua"), "universal")({})
+    pcall(DownloadFile, prefix .. "games/universal.lua")
+    if isfile(prefix .. "games/universal.lua") then
+        loadstring(readfile(prefix .. "games/universal.lua"), "universal")({})
     end
 
     local gameFileId
@@ -122,15 +123,10 @@ if not shared.VapeIndependent then
         gameFileId = game.PlaceId
     end
 
-    local placeScript = "games/" .. tostring(gameFileId) .. ".lua"
+    local placeScript = prefix .. "games/" .. tostring(gameFileId) .. ".lua"
     pcall(DownloadFile, placeScript)
     if isfile(placeScript) then
         loadstring(readfile(placeScript), tostring(gameFileId))({})
-    end
-
-    pcall(DownloadFile, "libraries/main.lua")
-    if isfile("libraries/main.lua") then
-        loadstring(readfile("libraries/main.lua"), "main")({})
     end
 
     FinishLoading()
