@@ -520,7 +520,12 @@ do
     end)
 
     if Success and Family and Family ~= "" then
-        UIPallet.Font = Font.new(Family, Enum.FontWeight.Regular)
+        local FontSuccess, FontResult = pcall(function()
+            return Font.new(Family, Enum.FontWeight.Regular)
+        end)
+        if FontSuccess and FontResult then
+            UIPallet.Font = FontResult
+        end
     end
 
     local DisplaySuccess, DisplayFamily = pcall(function()
@@ -538,8 +543,15 @@ do
     end)
 
     if DisplaySuccess and DisplayFamily and DisplayFamily ~= "" then
-        UIPallet.FontDisplay = Font.new(DisplayFamily, Enum.FontWeight.Regular)
-        UIPallet.DisplayScale = 0.845
+        local DisplayFontSuccess, DisplayFontResult = pcall(function()
+            return Font.new(DisplayFamily, Enum.FontWeight.Regular)
+        end)
+        if DisplayFontSuccess and DisplayFontResult then
+            UIPallet.FontDisplay = DisplayFontResult
+            UIPallet.DisplayScale = 0.845
+        else
+            UIPallet.DisplayScale = 1
+        end
     else
         UIPallet.DisplayScale = 1
     end
