@@ -15,7 +15,7 @@ end
 local function DownloadFile(FilePath: string, Func)
     if not isfile(FilePath) then
         local Success, Result = pcall(function()
-            return game:HttpGet(`https://api.catvape.dev/download/src/{select(1, FilePath:gsub("C:/Users/PC/Downloads/새 폴더 (2)/", ""))}`, true)
+            return game:HttpGet(`https://api.catvape.dev/download/src/{select(1, FilePath:gsub("GyuvapeBedwarsCheat/", ""))}`, true)
         end)
         if not Success or Result == "404: Not Found" then
             error(Result)
@@ -27,8 +27,8 @@ local function DownloadFile(FilePath: string, Func)
     end
     return (Func or readfile)(FilePath)
 end
-vape.Libraries.replayvisuals = loadstring(DownloadFile("C:/Users/PC/Downloads/새 폴더 (2)/libraries/replayvisuals.lua"), "ReplayVisuals")()
-vape.Libraries.swordtiming = loadstring(DownloadFile("C:/Users/PC/Downloads/새 폴더 (2)/libraries/swordtiming.lua"), "SwordTiming")()
+vape.Libraries.replayvisuals = loadstring(DownloadFile("GyuvapeBedwarsCheat/libraries/replayvisuals.lua"), "ReplayVisuals")()
+vape.Libraries.swordtiming = loadstring(DownloadFile("GyuvapeBedwarsCheat/libraries/swordtiming.lua"), "SwordTiming")()
 local BuildClock: number = os.clock()
 local BuildBudget: number = 0.004
 local Run = function(Func: () -> ())
@@ -76,7 +76,7 @@ local Camera: Camera = workspace.CurrentCamera
 local LocalPlayer: Player = Players.LocalPlayer
 local AssetFunction = getcustomasset
 
-vape.Libraries.navigation = loadstring(DownloadFile("C:/Users/PC/Downloads/새 폴더 (2)/libraries/navigation.lua"), "navigation")()
+vape.Libraries.navigation = loadstring(DownloadFile("GyuvapeBedwarsCheat/libraries/navigation.lua"), "navigation")()
 vape.Libraries.bedwarsbrain = vape.Libraries.navigation.Brain
 vape.Libraries.bedwarscontroller = vape.Libraries.navigation.Controller
 vape.Libraries.bedwarsadapter = vape.Libraries.navigation.Adapter
@@ -191,7 +191,7 @@ local function AddBlur(Parent: Instance): ImageLabel
     Blur.Size = UDim2.new(1, 89, 1, 52)
     Blur.Position = UDim2.fromOffset(-48, -31)
     Blur.BackgroundTransparency = 1
-    Blur.Image = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/blur.png")
+    Blur.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/blur.png")
     Blur.ScaleType = Enum.ScaleType.Slice
     Blur.SliceCenter = Rect.new(52, 31, 261, 502)
     Blur.Parent = Parent
@@ -1365,7 +1365,7 @@ local require, debug, CheatEngineLib = require, debug, nil
 Run(function()
     getgenv().canDebug = not table.find({"Solara", "Xeno"}, ({identifyexecutor()})[1]) and true or false
     if not canDebug then
-        CheatEngineLib = loadstring(DownloadFile("C:/Users/PC/Downloads/새 폴더 (2)/libraries/cheatengine.lua"), "cheatengine")(vape, VapeEvents, Entity)
+        CheatEngineLib = loadstring(DownloadFile("GyuvapeBedwarsCheat/libraries/cheatengine.lua"), "cheatengine")(vape, VapeEvents, Entity)
         require = function(Module: Instance)
             return CheatEngineLib[({Module:GetFullName():gsub(LocalPlayer.Name, "PlayerTemplate")})[1]]:await()
         end
@@ -7230,7 +7230,7 @@ Run(function()
 	    local Arrow: ImageLabel = Instance.new("ImageLabel")
 	    Arrow.AnchorPoint = Vector2.new(0.5, 0.5)
 	    Arrow.BackgroundTransparency = 1
-	    Arrow.Image = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/expandright.png")
+	    Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/expandright.png")
 	    Arrow.ImageColor3 = Color.Dark(UIPallet.Text, 0.16)
 	    Arrow.Position = UDim2.fromScale(0.5, 0.5)
 	    Arrow.Rotation = Step < 0 and 180 or 0
@@ -7251,7 +7251,7 @@ Run(function()
 	
 	BedDefense = vape:CreateOverlay({
 	    Name = "Bed Defense",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_bedalarm.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_bedalarm.png"),
 	    Size = UDim2.fromOffset(16, 16),
 	    Position = UDim2.fromOffset(12, 13),
 	    CategorySize = 240,
@@ -9618,7 +9618,7 @@ Run(function()
 	
 	HitAccuracy = vape:CreateOverlay({
 	    Name = "Hit Accuracy",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/aim.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/aim.png"),
 	    Size = UDim2.fromOffset(18, 12),
 	    Position = UDim2.fromOffset(11, 14),
 	    Function = function(Callback: boolean)
@@ -12191,14 +12191,14 @@ Run(function()
 	
 	ComboCounter = TargetInfo:CreateStat({
 	    Name = "Combo Counter",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/combo_display.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/combo_display.png"),
 	    IconSize = UDim2.fromOffset(14, 12),
 	    Default = true,
 	    Tooltip = "Shows how many hits in a direct row you have landed on, or taken from, the target."
 	})
 	ComboComparator = TargetInfo:CreateStat({
 	    Name = "Combo Comparator",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/sword_header.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/sword_header.png"),
 	    IconSize = UDim2.fromOffset(12, 12),
 	    Signed = true,
 	    Tooltip = "Measures how many hits you have landed compared to the target."
@@ -15171,7 +15171,7 @@ Run(function()
 	RegionLock = vape.Categories.Utility:CreateModule({
 	    Name = "RegionLock",
 	    Function = function(Callback: boolean)
-	        writefile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/regionlock.txt", tostring(Callback))
+	        writefile("GyuvapeBedwarsCheat/profiles/regionlock.txt", tostring(Callback))
 	        getgenv().regionLockActive = Callback
 	        getgenv().regionLockAllowed = not Callback
 	        if Callback then
@@ -15250,7 +15250,7 @@ Run(function()
 	
 	task.spawn(function()
 	    repeat task.wait() until vape.Loaded or vape.Loaded == nil
-	    local Last = isfile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/regionlock.json") and readfile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/regionlock.json")
+	    local Last = isfile("GyuvapeBedwarsCheat/profiles/regionlock.json") and readfile("GyuvapeBedwarsCheat/profiles/regionlock.json")
 	    if vape.Loaded and Last then
 	        local Success, Response = pcall(HttpService.JSONDecode, HttpService, Last)
 	        if Success and type(Response) == "table" then
@@ -15266,7 +15266,7 @@ Run(function()
 	            local Encoded: string = HttpService:JSONEncode(Data.RegionLock)
 	            if Encoded ~= Last then
 	                Last = Encoded
-	                writefile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/regionlock.json", Encoded)
+	                writefile("GyuvapeBedwarsCheat/profiles/regionlock.json", Encoded)
 	            end
 	        end
 	        task.wait(1)
@@ -18480,7 +18480,7 @@ Run(function()
 	                        Size = UDim2.new(1, 89, 1, 52),
 	                        Position = UDim2.fromOffset(-48, -31),
 	                        BackgroundTransparency = 1,
-	                        Image = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/blur.png"),
+	                        Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/blur.png"),
 	                        ScaleType = Enum.ScaleType.Slice,
 	                        SliceCenter = Rect.new(52, 31, 261, 502)
 	                    }),
@@ -19808,7 +19808,7 @@ Run(function()
 	    Close.Position = UDim2.new(1, -35, 0, 9)
 	    Close.BackgroundColor3 = Color3.new(1, 1, 1)
 	    Close.BackgroundTransparency = 1
-	    Close.Image = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/close.png")
+	    Close.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/close.png")
 	    Close.ImageColor3 = Color.Light(UIPallet.Text, 0.2)
 	    Close.ImageTransparency = 0.5
 	    Close.AutoButtonColor = false
@@ -19922,7 +19922,7 @@ Run(function()
 	    SearchIcon.Size = UDim2.fromOffset(14, 14)
 	    SearchIcon.Position = UDim2.new(1, -26, 0, 8)
 	    SearchIcon.BackgroundTransparency = 1
-	    SearchIcon.Image = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/search.png")
+	    SearchIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/search.png")
 	    SearchIcon.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 	    SearchIcon.Parent = SearchBackground
 	    local Children: ScrollingFrame = Instance.new("ScrollingFrame")
@@ -20065,7 +20065,7 @@ Run(function()
 	    AddButtonIcon.Position = UDim2.fromScale(0.5, 0.5)
 	    AddButtonIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 	    AddButtonIcon.BackgroundTransparency = 1
-	    AddButtonIcon.Image = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/add.png")
+	    AddButtonIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/add.png")
 	    AddButtonIcon.ImageColor3 = Color3.fromHSV(0.46, 0.96, 0.52)
 	    AddButtonIcon.Parent = AddButton
 	    local ChildrenList: Frame = Instance.new("Frame")
@@ -20158,7 +20158,7 @@ Run(function()
 	        Close.Position = UDim2.new(1, -23, 0, 6)
 	        Close.BackgroundColor3 = Color3.new(1, 1, 1)
 	        Close.BackgroundTransparency = 1
-	        Close.Image = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/closemini.png")
+	        Close.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/closemini.png")
 	        Close.ImageColor3 = Color.Light(UIPallet.Text, 0.2)
 	        Close.ImageTransparency = 0.5
 	        Close.AutoButtonColor = false
@@ -28707,7 +28707,7 @@ Run(function()
 	BedBreakEffect = vape.Legit:CreateModule({
 	    Name = "Bed Break Effect",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_bedbreakeffect.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_bedbreakeffect.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            BedBreakEffect:Clean(VapeEvents.BedwarsBedBreak.Event:Connect(function(Data)
@@ -28742,7 +28742,7 @@ Run(function()
 	vape.Legit:CreateModule({
 	    Name = "Clean Kit",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_cleankit.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_cleankit.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Old = bedwars.WindWalkerController.spawnOrb
@@ -28773,7 +28773,7 @@ Run(function()
 	local Crosshair = vape.Legit:CreateModule({
 	    Name = "Crosshair",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_crosshair.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_crosshair.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Old = {bedwars.Images.ui.hud.viewmodel_crosshair, bedwars.Images.ui.mobile_controls.mobile_crosshairs}
@@ -28850,7 +28850,7 @@ Run(function()
 	DamageIndicator = vape.Legit:CreateModule({
 	    Name = "Damage Indicator",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_damageindicator.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_damageindicator.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            OldValues = table.clone(Settings)
@@ -28941,7 +28941,7 @@ Run(function()
 	FOV = vape.Legit:CreateModule({
 	    Name = "FOV",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_fov.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_fov.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            OldSetFOV = bedwars.FovController.setFOV
@@ -28975,7 +28975,7 @@ Run(function()
 	vape.Legit:CreateModule({
 	    Name = "FPSUnlocker",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_fpsunlocker.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_fpsunlocker.png"),
 	    Function = function(Callback: boolean)
 	        if Cap then
 	            setfpscap(Callback and 9999 or Cap)
@@ -28995,7 +28995,7 @@ Run(function()
 	HitColor = vape.Legit:CreateModule({
 	    Name = "Hit Color",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_hitcolor.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_hitcolor.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            repeat
@@ -29032,7 +29032,7 @@ Run(function()
 	vape.Legit:CreateModule({
 	    Name = "HitFix",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_hitfix.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_hitfix.png"),
 	    Function = function(Callback: boolean)
 	        debug.setconstant(bedwars.SwordController.swingSwordAtMouse, 23, Callback and "raycast" or "Raycast")
 	        debug.setupvalue(bedwars.SwordController.swingSwordAtMouse, 4, Callback and bedwars.QueryUtil or workspace)
@@ -29090,7 +29090,7 @@ Run(function()
 	Interface = vape.Legit:CreateModule({
 	    Name = "Interface",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_interface.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_interface.png"),
 	    Function = function(Callback: boolean)
 	        for Function: (...any) -> ...any, Constants: {[number]: any} in (Callback and NewConstants or OldConstants) do
 	            for i: number, Value: any in Constants do
@@ -29253,7 +29253,7 @@ Run(function()
 	KillEffect = vape.Legit:CreateModule({
 	    Name = "Kill Effect",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_killeffect.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_killeffect.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            for Name: string, Effect: (...any) -> ...any in KillEffects do
@@ -29323,7 +29323,7 @@ Run(function()
     Ping = vape.Legit:CreateModule({
         Name = "Ping",
         Category = "HUD",
-        Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_ping.png"),
+        Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_ping.png"),
         Function = function(Callback: boolean)
             if Callback then
                 repeat
@@ -29589,7 +29589,7 @@ Run(function()
 	PotionStatus = vape.Legit:CreateModule({
 	    Name = "Potion Status",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_potionstatus.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_potionstatus.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            repeat
@@ -29677,7 +29677,7 @@ Run(function()
 	ReachDisplay = vape.Legit:CreateModule({
 	    Name = "Reach Display",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_reachdisplay.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_reachdisplay.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            repeat
@@ -29774,7 +29774,7 @@ Run(function()
 	SongBeats = vape.Legit:CreateModule({
 	    Name = "Song Beats",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_songbeats.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_songbeats.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            SongObject = Instance.new("Sound")
@@ -29856,7 +29856,7 @@ Run(function()
 	SoundChanger = vape.Legit:CreateModule({
 	    Name = "SoundChanger",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_soundchanger.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_soundchanger.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Old = bedwars.AudioManager.playAudio
@@ -29939,7 +29939,7 @@ Run(function()
 	UICleanup = vape.Legit:CreateModule({
 	    Name = "UI Cleanup",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_uicleanup.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_uicleanup.png"),
 	    Function = function(Callback: boolean)
 	        for Function: (...any) -> ...any, Constants: {[number]: any} in (Callback and NewConstants or OldConstants) do
 	            for i: number, Value: any in Constants do
@@ -30156,7 +30156,7 @@ Run(function()
 	Viewmodel = vape.Legit:CreateModule({
 	    Name = "Viewmodel",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_viewmodel.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_viewmodel.png"),
 	    Function = function(Callback: boolean)
 	        local ViewmodelRig: Model? = Camera:FindFirstChild("Viewmodel")
 	        if Callback then
@@ -30339,7 +30339,7 @@ Run(function()
 	WinEffect = vape.Legit:CreateModule({
 	    Name = "WinEffect",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_wineffect.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_wineffect.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            WinEffect:Clean(VapeEvents.MatchEndEvent.Event:Connect(function()
@@ -30381,7 +30381,7 @@ Run(function()
 	Zoom = vape.Legit:CreateModule({
 	    Name = "Zoom",
 	    Category = "Game",
-	    Icon = GetVapeAsset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_fov.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_fov.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            local Base: number = bedwars.FovController:getFOV()
@@ -42961,7 +42961,7 @@ vape.Categories.Utility:CreateModule({
 vape.Categories.Utility:CreateModule({
 			Name = "AutoMatchDodge",
 			Function = function(matchDodgeActive)
-				writefile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/matchdodge.txt", tostring(matchDodgeActive))
+				writefile("GyuvapeBedwarsCheat/profiles/matchdodge.txt", tostring(matchDodgeActive))
 				getgenv().matchDodgeActive = matchDodgeActive
 
 				if matchDodgeActive then
@@ -43403,7 +43403,7 @@ vape.Categories.Utility:CreateModule({
 				break
 			end
 
-			local json = isfile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/matchdodge.json") and readfile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/matchdodge.json")
+			local json = isfile("GyuvapeBedwarsCheat/profiles/matchdodge.json") and readfile("GyuvapeBedwarsCheat/profiles/matchdodge.json")
 
 			if vape.Loaded and json then
 				local ok, result = pcall(v2.JSONDecode, v2, json)
@@ -43425,7 +43425,7 @@ vape.Categories.Utility:CreateModule({
 					local json2 = v2:JSONEncode(tbl5.AutoMatchDodge)
 
 					if json2 ~= json then
-						writefile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/matchdodge.json", json2)
+						writefile("GyuvapeBedwarsCheat/profiles/matchdodge.json", json2)
 						json = json2
 					end
 				end
@@ -43492,8 +43492,8 @@ vape.Categories.Utility:CreateModule({
 		local playAudio = nil
 		local flag = false
 
-		if not isfolder("C:/Users/PC/Downloads/새 폴더 (2)/replays") then
-			makefolder("C:/Users/PC/Downloads/새 폴더 (2)/replays")
+		if not isfolder("replays") then
+			makefolder("replays")
 		end
 
 		local tbl15 = {
@@ -44337,14 +44337,14 @@ vape.Categories.Utility:CreateModule({
 
 			return pcall(function()
 				local jsonEncode = v2.JSONEncode
-				writefile(("%*/%*"):format("C:/Users/PC/Downloads/새 폴더 (2)/replays", str), jsonEncode(v2, tbl11))
+				writefile(("%*/%*"):format("replays", str), jsonEncode(v2, tbl11))
 			end) and str or nil
 		end
 
 		local function fn24()
 			local tbl48 = {}
 
-			for _, v31 in listfiles("C:/Users/PC/Downloads/새 폴더 (2)/replays") do
+			for _, v31 in listfiles("replays") do
 				local match = v31:match("([^/\\]+)$")
 
 				if match and match:sub(-5) == ".json" then
@@ -45718,7 +45718,7 @@ vape.Categories.Utility:CreateModule({
 						imageLabel.Size = UDim2.new(1, 89, 1, 52)
 						imageLabel.Position = UDim2.fromOffset(-48, -31)
 						imageLabel.BackgroundTransparency = 1
-						imageLabel.Image = getvapeasset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/blur.png")
+						imageLabel.Image = getvapeasset("GyuvapeBedwarsCheat/assets/new/blur.png")
 						imageLabel.ScaleType = Enum.ScaleType.Slice
 						imageLabel.SliceCenter = Rect.new(52, 31, 261, 502)
 						imageLabel.Parent = frame
@@ -46597,7 +46597,7 @@ vape.Categories.Utility:CreateModule({
 		local function fn56()
 			fn45()
 			local value = v17.Value
-			local str = ("%*/%*"):format("C:/Users/PC/Downloads/새 폴더 (2)/replays", value)
+			local str = ("%*/%*"):format("replays", value)
 			if value == "None" or not isfile(str) then
 				notif("ReplayMod", "No replay selected", 5, "alert")
 				return
@@ -47027,7 +47027,7 @@ vape.Categories.Utility:CreateModule({
 			Name = "Delete replay",
 			Function = function()
 				local value = v17.Value
-				local str = ("%*/%*"):format("C:/Users/PC/Downloads/새 폴더 (2)/replays", value)
+				local str = ("%*/%*"):format("replays", value)
 
 				if value ~= "None" and isfile(str) then
 					delfile(str)
@@ -49495,7 +49495,7 @@ vape.Categories.Kits:CreateModule({
 Legit:CreateModule({
 			Name = "BedAlarm",
 			Category = "Game",
-			Icon = getvapeasset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_bedalarm.png"),
+			Icon = getvapeasset("GyuvapeBedwarsCheat/assets/new/legit_bedalarm.png"),
 			Function = function(arg)
 				if arg then
 					local obj2 = setmetatable({}, { __mode = "k" })
@@ -62114,7 +62114,7 @@ vape.Categories.Utility:CreateModule({
 vape.Categories.Utility:CreateModule({
 			Name = "AutoMatchDodge",
 			Function = function(matchDodgeActive)
-				writefile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/matchdodge.txt", tostring(matchDodgeActive))
+				writefile("GyuvapeBedwarsCheat/profiles/matchdodge.txt", tostring(matchDodgeActive))
 				getgenv().matchDodgeActive = matchDodgeActive
 
 				if matchDodgeActive then
@@ -62556,7 +62556,7 @@ vape.Categories.Utility:CreateModule({
 				break
 			end
 
-			local json = isfile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/matchdodge.json") and readfile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/matchdodge.json")
+			local json = isfile("GyuvapeBedwarsCheat/profiles/matchdodge.json") and readfile("GyuvapeBedwarsCheat/profiles/matchdodge.json")
 
 			if vape.Loaded and json then
 				local ok, result = pcall(v2.JSONDecode, v2, json)
@@ -62578,7 +62578,7 @@ vape.Categories.Utility:CreateModule({
 					local json2 = v2:JSONEncode(tbl5.AutoMatchDodge)
 
 					if json2 ~= json then
-						writefile("C:/Users/PC/Downloads/새 폴더 (2)/profiles/matchdodge.json", json2)
+						writefile("GyuvapeBedwarsCheat/profiles/matchdodge.json", json2)
 						json = json2
 					end
 				end
@@ -62645,8 +62645,8 @@ vape.Categories.Utility:CreateModule({
 		local playAudio = nil
 		local flag = false
 
-		if not isfolder("C:/Users/PC/Downloads/새 폴더 (2)/replays") then
-			makefolder("C:/Users/PC/Downloads/새 폴더 (2)/replays")
+		if not isfolder("replays") then
+			makefolder("replays")
 		end
 
 		local tbl15 = {
@@ -63490,14 +63490,14 @@ vape.Categories.Utility:CreateModule({
 
 			return pcall(function()
 				local jsonEncode = v2.JSONEncode
-				writefile(("%*/%*"):format("C:/Users/PC/Downloads/새 폴더 (2)/replays", str), jsonEncode(v2, tbl11))
+				writefile(("%*/%*"):format("replays", str), jsonEncode(v2, tbl11))
 			end) and str or nil
 		end
 
 		local function fn24()
 			local tbl48 = {}
 
-			for _, v31 in listfiles("C:/Users/PC/Downloads/새 폴더 (2)/replays") do
+			for _, v31 in listfiles("replays") do
 				local match = v31:match("([^/\\]+)$")
 
 				if match and match:sub(-5) == ".json" then
@@ -64871,7 +64871,7 @@ vape.Categories.Utility:CreateModule({
 						imageLabel.Size = UDim2.new(1, 89, 1, 52)
 						imageLabel.Position = UDim2.fromOffset(-48, -31)
 						imageLabel.BackgroundTransparency = 1
-						imageLabel.Image = getvapeasset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/blur.png")
+						imageLabel.Image = getvapeasset("GyuvapeBedwarsCheat/assets/new/blur.png")
 						imageLabel.ScaleType = Enum.ScaleType.Slice
 						imageLabel.SliceCenter = Rect.new(52, 31, 261, 502)
 						imageLabel.Parent = frame
@@ -65750,7 +65750,7 @@ vape.Categories.Utility:CreateModule({
 		local function fn56()
 			fn45()
 			local value = v17.Value
-			local str = ("%*/%*"):format("C:/Users/PC/Downloads/새 폴더 (2)/replays", value)
+			local str = ("%*/%*"):format("replays", value)
 			if value == "None" or not isfile(str) then
 				notif("ReplayMod", "No replay selected", 5, "alert")
 				return
@@ -66180,7 +66180,7 @@ vape.Categories.Utility:CreateModule({
 			Name = "Delete replay",
 			Function = function()
 				local value = v17.Value
-				local str = ("%*/%*"):format("C:/Users/PC/Downloads/새 폴더 (2)/replays", value)
+				local str = ("%*/%*"):format("replays", value)
 
 				if value ~= "None" and isfile(str) then
 					delfile(str)
@@ -68648,7 +68648,7 @@ vape.Categories.Kits:CreateModule({
 Legit:CreateModule({
 			Name = "BedAlarm",
 			Category = "Game",
-			Icon = getvapeasset("C:/Users/PC/Downloads/새 폴더 (2)/assets/new/legit_bedalarm.png"),
+			Icon = getvapeasset("GyuvapeBedwarsCheat/assets/new/legit_bedalarm.png"),
 			Function = function(arg)
 				if arg then
 					local obj2 = setmetatable({}, { __mode = "k" })
@@ -68750,4 +68750,3 @@ Legit:CreateModule({
 
 		v18 = v14:CreateSlider({ Name = "Volume multiplier", Min = 0.1, Max = 2, Default = 1.4, Decimal = 100 })
 	end)
-
