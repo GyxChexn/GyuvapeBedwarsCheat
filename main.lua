@@ -1,3 +1,4 @@
+-- Gyuvape Main Entrypoint Loader (GitHub Deployed)
 repeat
     task.wait()
 until game:IsLoaded()
@@ -44,6 +45,7 @@ end
 local function DownloadFile(FilePath: string, Reader)
     if not isfile(FilePath) then
         EnsureDirectory(FilePath)
+        -- strip prefix for github URL
         local remotePath = FilePath:gsub("^" .. prefix, "")
         local Success, Response = pcall(function()
             return game:HttpGet(repoUrl .. remotePath, true)
@@ -116,6 +118,7 @@ if not shared.VapeIndependent then
         loadstring(readfile(prefix .. "games/universal.lua"), "universal")({})
     end
 
+    -- Bedwars GameId 기반 PlaceId 판별
     local gameFileId
     if game.GameId == 2619619496 then
         gameFileId = (game.PlaceId == 6872265039) and 6872265039 or 6872274481
@@ -126,7 +129,12 @@ if not shared.VapeIndependent then
     local placeScript = prefix .. "games/" .. tostring(gameFileId) .. ".lua"
     pcall(DownloadFile, placeScript)
     if isfile(placeScript) then
-        loadstring(readfile(placeScript), tostring(gameFileId))({})
+        local src = readfile(placeScript)
+        local chunk, err = loadstring(src, tostring(gameFileId))
+        if not chunk then
+            error("[Gyuvape] syntax error in " .. tostring(gameFileId) .. ".lua: " .. tostring(err))
+        end
+        chunk({})
     end
 
     FinishLoading()
