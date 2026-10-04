@@ -1,0 +1,24 @@
+{
+	"added": [],
+	"updated": [
+		"Killaura",
+		"NoFall",
+		"InfiniteFly",
+		"AutoWhisper",
+		"AutoBank",
+		"GeneratorESP",
+		"StaffDetector",
+		"AimAssist",
+		"AutoLasso",
+		"DaveyAim",
+		"SilentAura",
+		"KitDisplay",
+		"Nuker",
+		"NickHider",
+		"Speed",
+		"HitregAdjuster",
+		"ReplayMod",
+		"KnockbackSpoof"
+	],
+	"text": "[BEDWARS]\n\u001b[2;33m[!]\u001b[0m Fixed Killaura's High hitreg getting fewer hits at lower FPS\n\u001b[2;33m[!]\u001b[0m Fixed NoFall letting you take fall damage after long flights\n\u001b[2;33m[!]\u001b[0m Fixed AutoWhisper randomly lifting your teammate\n\u001b[2;34m[*]\u001b[0m Reworked AutoBank (smoother banking and resource returns)\n\u001b[2;34m[*]\u001b[0m Improved GeneratorESP and StaffDetector so their panels can be selected, moved and remember where you put them\n\u001b[2;32m[+]\u001b[0m Added Bank mode to AutoBank (choose when resources are banked)\n\u001b[2;32m[+]\u001b[0m Added Bank now to AutoBank (bank resources with a separate bind)\n\u001b[2;32m[+]\u001b[0m Added On death to AutoBank (protect selected items before dying)\n\u001b[2;33m[!]\u001b[0m Fixed AimAssist aiming too low with projectiles at a distance\n\u001b[2;33m[!]\u001b[0m Fixed AutoLasso not throwing its lasso\n\u001b[2;33m[!]\u001b[0m Fixed DaveyAim not launching normally\n\u001b[2;33m[!]\u001b[0m Fixed Killaura and SilentAura sometimes missing swing animations\n\u001b[2;33m[!]\u001b[0m Fixed KitDisplay hiding kits when using NickHider\n\u001b[2;33m[!]\u001b[0m Fixed Nuker pausing while breaking bed defenses\n\u001b[2;34m[*]\u001b[0m Renamed NameHider to NickHider (keeps your saved settings)\n\u001b[2;34m[*]\u001b[0m Reworked Killaura (automatic timing and simpler attack ranges)\n\u001b[2;34m[*]\u001b[0m Reworked ReplayMod (more realistic match playback)\n\u001b[2;34m[*]\u001b[0m Improved HitregAdjuster to use Killaura's attack timing\n\u001b[2;33m[!]\u001b[0m Fixed AutoBank users accidentally storing each other's drops\n\u001b[2;32m[+]\u001b[0m Added KnockbackSpoof to Utility\n\u001b[2;32m[+]\u001b[0m Added ReplayMod to the free modules\n\u001b[2;31m[-]\u001b[0m Removed ChargeAura\n\u001b[2;31m[-]\u001b[0m Removed ChargeSpoof\n\u001b[2;34m[*]\u001b[0m Improved AutoBank relocation to reduce visible item flashes\n\u001b[2;34m[*]\u001b[0m Improved Killaura defaults (High hitreg enabled for new and existing configs)"
+}
