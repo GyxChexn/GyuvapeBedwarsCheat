@@ -1,4 +1,5 @@
 -- Gyuvape Main Entrypoint Loader (GitHub Deployed)
+local _loadstring = loadstring
 repeat
     task.wait()
 until game:IsLoaded()
@@ -59,7 +60,7 @@ local function DownloadFile(FilePath: string, Reader)
 end
 
 local vape, RunPremium
-local _loadstring = loadstring
+local _loadstring = getgenv().loadstring or loadstring
 local loadstring = function(...)
     local Chunk, Error = _loadstring(...)
     if Error and vape then
