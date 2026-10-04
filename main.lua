@@ -59,8 +59,9 @@ local function DownloadFile(FilePath: string, Reader)
 end
 
 local vape, RunPremium
+local _loadstring = loadstring
 local loadstring = function(...)
-    local Chunk, Error = loadstring(...)
+    local Chunk, Error = _loadstring(...)
     if Error and vape then
         vape:CreateNotification("Vape", "Failed to load : " .. tostring(Error), 30, "alert")
     end
@@ -130,7 +131,7 @@ if not shared.VapeIndependent then
     pcall(DownloadFile, placeScript)
     if isfile(placeScript) then
         local src = readfile(placeScript)
-        local chunk, err = loadstring(src, tostring(gameFileId))
+        local chunk, err = _loadstring(src, tostring(gameFileId))
         if not chunk then
             error("[Gyuvape] syntax error in " .. tostring(gameFileId) .. ".lua: " .. tostring(err))
         end
