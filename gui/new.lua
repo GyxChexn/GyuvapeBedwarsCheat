@@ -95,7 +95,7 @@ local function WriteJSON(FilePath: string, Data)
     return pcall(writefile, FilePath, Encoded)
 end
 
-local NotificationsOff = isfile("profiles/notifications.txt") and readfile("profiles/notifications.txt") == "false"
+local NotificationsOff = isfile("GyuvapeBedwarsCheat/profiles/notifications.txt") and readfile("GyuvapeBedwarsCheat/profiles/notifications.txt") == "false"
 local LoadFailures: number = 0
 local DeferredLoads: number = 0
 local LoadGeneration: number = 0
@@ -137,13 +137,13 @@ local function GetFeatureTag(Name: string)
     if not FeatureTags then
         FeatureTags = {}
 
-        if not isfile("features.json") then
+        if not isfile("GyuvapeBedwarsCheat/features.json") then
             pcall(function()
-                writefile("features.json", game:HttpGet("https://api.catvape.dev/download/src/features.json", true))
+                writefile("GyuvapeBedwarsCheat/features.json", game:HttpGet("https://api.catvape.dev/download/src/features.json", true))
             end)
         end
 
-        local Features = LoadJSON("features.json")
+        local Features = LoadJSON("GyuvapeBedwarsCheat/features.json")
         for Tag: string, v: string in {updated = "updated", new = "added"} do
             local List = Features and Features[v]
 
@@ -240,135 +240,135 @@ end
 
 do
     local VapeAssets: {[string]: string} = {
-        ["assets/new/add.png"] = "rbxassetid://121642387707174",
-        ["assets/new/aim.png"] = "rbxassetid://122207028123421",
-        ["assets/new/allowedicon.png"] = "rbxassetid://112336790299036",
-        ["assets/new/allowediconmini.png"] = "rbxassetid://90142384730147",
-        ["assets/new/back.png"] = "rbxassetid://80523803497740",
-        ["assets/new/backmini.png"] = "rbxassetid://85859225495272",
-        ["assets/new/bind.png"] = "rbxassetid://81399857677684",
-        ["assets/new/bindbkg.png"] = "rbxassetid://101996225428926",
-        ["assets/new/blatant.png"] = "rbxassetid://126929923309265",
-        ["assets/new/blur.png"] = "rbxassetid://79246816170155",
-        ["assets/new/blurnoti.png"] = "rbxassetid://124705876663719",
-        ["assets/new/cheat_switch.png"] = "rbxassetid://99437817306124",
-        ["assets/new/close.png"] = "rbxassetid://121816018671466",
-        ["assets/new/closemini.png"] = "rbxassetid://108320409341289",
-        ["assets/new/closetiny.png"] = "rbxassetid://71393233149714",
-        ["assets/new/colorpreview.png"] = "rbxassetid://140438628568318",
-        ["assets/new/combat.png"] = "rbxassetid://94762732349053",
-        ["assets/new/combo_display.png"] = "rbxassetid://97746985576116",
-        ["assets/new/compassarrow.png"] = "rbxassetid://100463923923900",
-        ["assets/new/customtheme.png"] = "rbxassetid://91756736022800",
-        ["assets/new/discord.png"] = "rbxassetid://99871463341003",
-        ["assets/new/dislike.png"] = "rbxassetid://135092704977606",
-        ["assets/new/downexpand.png"] = "rbxassetid://94197751291504",
-        ["assets/new/downexpandslider.png"] = "rbxassetid://90289944682645",
-        ["assets/new/edit.png"] = "rbxassetid://105801951237137",
-        ["assets/new/editlarge.png"] = "rbxassetid://119233876755282",
-        ["assets/new/empty.png"] = "rbxassetid://89525157373515",
-        ["assets/new/expandarrow.png"] = "rbxassetid://86360332526471",
-        ["assets/new/expandright.png"] = "rbxassetid://14368316544",
-        ["assets/new/expandup.png"] = "rbxassetid://14368317595",
-        ["assets/new/favoritesicon.png"] = "rbxassetid://133471112203189",
-        ["assets/new/friends.png"] = "rbxassetid://92957214042038",
-        ["assets/new/hide.png"] = "rbxassetid://129675456133478",
-        ["assets/new/inventory.png"] = "rbxassetid://93264756888499",
-        ["assets/new/key_down.png"] = "rbxassetid://",
-        ["assets/new/key_left.png"] = "rbxassetid://",
-        ["assets/new/key_lmb.png"] = "rbxassetid://",
-        ["assets/new/key_mmb.png"] = "rbxassetid://",
-        ["assets/new/key_right.png"] = "rbxassetid://",
-        ["assets/new/key_rmb.png"] = "rbxassetid://",
-        ["assets/new/key_up.png"] = "rbxassetid://",
-        ["assets/new/legit_atmosphere.png"] = "rbxassetid://",
-        ["assets/new/legit_bedalarm.png"] = "rbxassetid://",
-        ["assets/new/legit_bedbreakeffect.png"] = "rbxassetid://",
-        ["assets/new/legit_breadcrumbs.png"] = "rbxassetid://",
-        ["assets/new/legit_bullettracers.png"] = "rbxassetid://",
-        ["assets/new/legit_cape.png"] = "rbxassetid://",
-        ["assets/new/legit_chinahat.png"] = "rbxassetid://",
-        ["assets/new/legit_cleankit.png"] = "rbxassetid://",
-        ["assets/new/legit_clock.png"] = "rbxassetid://",
-        ["assets/new/legit_compass.png"] = "rbxassetid://",
-        ["assets/new/legit_coords.png"] = "rbxassetid://",
-        ["assets/new/legit_crosshair.png"] = "rbxassetid://",
-        ["assets/new/legit_damageindicator.png"] = "rbxassetid://",
-        ["assets/new/legit_disguise.png"] = "rbxassetid://",
-        ["assets/new/legit_fflageditor.png"] = "rbxassetid://",
-        ["assets/new/legit_fixguis.png"] = "rbxassetid://",
-        ["assets/new/legit_fov.png"] = "rbxassetid://",
-        ["assets/new/legit_fps.png"] = "rbxassetid://",
-        ["assets/new/legit_fpsboost.png"] = "rbxassetid://",
-        ["assets/new/legit_fpsunlocker.png"] = "rbxassetid://",
-        ["assets/new/legit_hideshield.png"] = "rbxassetid://",
-        ["assets/new/legit_hitcolor.png"] = "rbxassetid://",
-        ["assets/new/legit_hitfix.png"] = "rbxassetid://",
-        ["assets/new/legit_hitsound.png"] = "rbxassetid://",
-        ["assets/new/legit_interface.png"] = "rbxassetid://",
-        ["assets/new/legit_keystrokes.png"] = "rbxassetid://",
-        ["assets/new/legit_killeffect.png"] = "rbxassetid://",
-        ["assets/new/legit_killsound.png"] = "rbxassetid://",
-        ["assets/new/legit_memory.png"] = "rbxassetid://",
-        ["assets/new/legit_mode_icon.png"] = "rbxassetid://102858626075156",
-        ["assets/new/legit_ping.png"] = "rbxassetid://",
-        ["assets/new/legit_potionstatus.png"] = "rbxassetid://",
-        ["assets/new/legit_reachdisplay.png"] = "rbxassetid://",
-        ["assets/new/legit_songbeats.png"] = "rbxassetid://",
-        ["assets/new/legit_soundchanger.png"] = "rbxassetid://",
-        ["assets/new/legit_speedmeter.png"] = "rbxassetid://",
-        ["assets/new/legit_switch.png"] = "rbxassetid://127508881124779",
-        ["assets/new/legit_timechanger.png"] = "rbxassetid://",
-        ["assets/new/legit_uicleanup.png"] = "rbxassetid://",
-        ["assets/new/legit_viewmodel.png"] = "rbxassetid://",
-        ["assets/new/legit_wineffect.png"] = "rbxassetid://",
-        ["assets/new/like.png"] = "rbxassetid://80039972048538",
-        ["assets/new/min.png"] = "rbxassetid://82175054487146",
-        ["assets/new/newhide.png"] = "rbxassetid://74295679301920",
-        ["assets/new/noti_alert.png"] = "rbxassetid://82356478726846",
-        ["assets/new/noti_info.png"] = "rbxassetid://102614825645099",
-        ["assets/new/noti_warning.png"] = "rbxassetid://119631730212167",
-        ["assets/new/notification.png"] = "rbxassetid://90300780458781",
-        ["assets/new/npcs.png"] = "rbxassetid://104434365485227",
-        ["assets/new/overlaydots.png"] = "rbxassetid://78012624671930",
-        ["assets/new/overlays.png"] = "rbxassetid://136535637407545",
-        ["assets/new/overlayslarge.png"] = "rbxassetid://127574141208160",
-        ["assets/new/pin.png"] = "rbxassetid://92459145800579",
-        ["assets/new/players.png"] = "rbxassetid://105137446428129",
-        ["assets/new/profiles.png"] = "rbxassetid://126051451865127",
-        ["assets/new/profilesicon.png"] = "rbxassetid://14397465323",
-        ["assets/new/profileworld.png"] = "rbxassetid://122650686344133",
-        ["assets/new/radar.png"] = "rbxassetid://97983828696086",
-        ["assets/new/rainbow_1.png"] = "rbxassetid://101329996188554",
-        ["assets/new/rainbow_2.png"] = "rbxassetid://72739074644654",
-        ["assets/new/rainbow_3.png"] = "rbxassetid://100716555253397",
-        ["assets/new/rainbow_4.png"] = "rbxassetid://133424174227092",
-        ["assets/new/range.png"] = "rbxassetid://107794917650053",
-        ["assets/new/rangearrow.png"] = "rbxassetid://14368348640",
-        ["assets/new/rangeindicator.png"] = "rbxassetid://107038094175283",
-        ["assets/new/render.png"] = "rbxassetid://125472576898654",
-        ["assets/new/search.png"] = "rbxassetid://115611852955611",
-        ["assets/new/settingdots.png"] = "rbxassetid://130896840048276",
-        ["assets/new/settings.png"] = "rbxassetid://73820177347303",
-        ["assets/new/settingsmini.png"] = "rbxassetid://115732118290997",
-        ["assets/new/show.png"] = "rbxassetid://85547987939285",
-        ["assets/new/star.png"] = "rbxassetid://96102671351955",
-        ["assets/new/sword_header.png"] = "rbxassetid://121706791793204",
-        ["assets/new/targetinfo.png"] = "rbxassetid://121604266095276",
-        ["assets/new/targetnpc1.png"] = "rbxassetid://14497400332",
-        ["assets/new/targetplayers1.png"] = "rbxassetid://14497396015",
-        ["assets/new/targetstab.png"] = "rbxassetid://14497393895",
-        ["assets/new/textgui.png"] = "rbxassetid://99438663817412",
-        ["assets/new/textguiline.png"] = "rbxassetid://",
-        ["assets/new/theme.png"] = "rbxassetid://111525258317113",
-        ["assets/new/triangle.png"] = "rbxassetid://75441874213844",
-        ["assets/new/utility.png"] = "rbxassetid://108303206513893",
-        ["assets/new/v4.png"] = "rbxassetid://102549752760489",
-        ["assets/new/v4mini.png"] = "rbxassetid://115213099001611",
-        ["assets/new/vape.png"] = "rbxassetid://92153855792786",
-        ["assets/new/vapelogo.png"] = "rbxassetid://126205920310261",
-        ["assets/new/vapelogomini.png"] = "rbxassetid://109041903452149",
-        ["assets/new/world.png"] = "rbxassetid://118917453153459"
+        ["GyuvapeBedwarsCheat/assets/new/add.png"] = "rbxassetid://121642387707174",
+        ["GyuvapeBedwarsCheat/assets/new/aim.png"] = "rbxassetid://122207028123421",
+        ["GyuvapeBedwarsCheat/assets/new/allowedicon.png"] = "rbxassetid://112336790299036",
+        ["GyuvapeBedwarsCheat/assets/new/allowediconmini.png"] = "rbxassetid://90142384730147",
+        ["GyuvapeBedwarsCheat/assets/new/back.png"] = "rbxassetid://80523803497740",
+        ["GyuvapeBedwarsCheat/assets/new/backmini.png"] = "rbxassetid://85859225495272",
+        ["GyuvapeBedwarsCheat/assets/new/bind.png"] = "rbxassetid://81399857677684",
+        ["GyuvapeBedwarsCheat/assets/new/bindbkg.png"] = "rbxassetid://101996225428926",
+        ["GyuvapeBedwarsCheat/assets/new/blatant.png"] = "rbxassetid://126929923309265",
+        ["GyuvapeBedwarsCheat/assets/new/blur.png"] = "rbxassetid://79246816170155",
+        ["GyuvapeBedwarsCheat/assets/new/blurnoti.png"] = "rbxassetid://124705876663719",
+        ["GyuvapeBedwarsCheat/assets/new/cheat_switch.png"] = "rbxassetid://99437817306124",
+        ["GyuvapeBedwarsCheat/assets/new/close.png"] = "rbxassetid://121816018671466",
+        ["GyuvapeBedwarsCheat/assets/new/closemini.png"] = "rbxassetid://108320409341289",
+        ["GyuvapeBedwarsCheat/assets/new/closetiny.png"] = "rbxassetid://71393233149714",
+        ["GyuvapeBedwarsCheat/assets/new/colorpreview.png"] = "rbxassetid://140438628568318",
+        ["GyuvapeBedwarsCheat/assets/new/combat.png"] = "rbxassetid://94762732349053",
+        ["GyuvapeBedwarsCheat/assets/new/combo_display.png"] = "rbxassetid://97746985576116",
+        ["GyuvapeBedwarsCheat/assets/new/compassarrow.png"] = "rbxassetid://100463923923900",
+        ["GyuvapeBedwarsCheat/assets/new/customtheme.png"] = "rbxassetid://91756736022800",
+        ["GyuvapeBedwarsCheat/assets/new/discord.png"] = "rbxassetid://99871463341003",
+        ["GyuvapeBedwarsCheat/assets/new/dislike.png"] = "rbxassetid://135092704977606",
+        ["GyuvapeBedwarsCheat/assets/new/downexpand.png"] = "rbxassetid://94197751291504",
+        ["GyuvapeBedwarsCheat/assets/new/downexpandslider.png"] = "rbxassetid://90289944682645",
+        ["GyuvapeBedwarsCheat/assets/new/edit.png"] = "rbxassetid://105801951237137",
+        ["GyuvapeBedwarsCheat/assets/new/editlarge.png"] = "rbxassetid://119233876755282",
+        ["GyuvapeBedwarsCheat/assets/new/empty.png"] = "rbxassetid://89525157373515",
+        ["GyuvapeBedwarsCheat/assets/new/expandarrow.png"] = "rbxassetid://86360332526471",
+        ["GyuvapeBedwarsCheat/assets/new/expandright.png"] = "rbxassetid://14368316544",
+        ["GyuvapeBedwarsCheat/assets/new/expandup.png"] = "rbxassetid://14368317595",
+        ["GyuvapeBedwarsCheat/assets/new/favoritesicon.png"] = "rbxassetid://133471112203189",
+        ["GyuvapeBedwarsCheat/assets/new/friends.png"] = "rbxassetid://92957214042038",
+        ["GyuvapeBedwarsCheat/assets/new/hide.png"] = "rbxassetid://129675456133478",
+        ["GyuvapeBedwarsCheat/assets/new/inventory.png"] = "rbxassetid://93264756888499",
+        ["GyuvapeBedwarsCheat/assets/new/key_down.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/key_left.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/key_lmb.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/key_mmb.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/key_right.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/key_rmb.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/key_up.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_atmosphere.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_bedalarm.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_bedbreakeffect.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_breadcrumbs.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_bullettracers.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_cape.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_chinahat.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_cleankit.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_clock.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_compass.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_coords.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_crosshair.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_damageindicator.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_disguise.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_fflageditor.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_fixguis.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_fov.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_fps.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_fpsboost.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_fpsunlocker.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_hideshield.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_hitcolor.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_hitfix.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_hitsound.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_interface.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_keystrokes.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_killeffect.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_killsound.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_memory.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_mode_icon.png"] = "rbxassetid://102858626075156",
+        ["GyuvapeBedwarsCheat/assets/new/legit_ping.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_potionstatus.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_reachdisplay.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_songbeats.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_soundchanger.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_speedmeter.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_switch.png"] = "rbxassetid://127508881124779",
+        ["GyuvapeBedwarsCheat/assets/new/legit_timechanger.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_uicleanup.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_viewmodel.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/legit_wineffect.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/like.png"] = "rbxassetid://80039972048538",
+        ["GyuvapeBedwarsCheat/assets/new/min.png"] = "rbxassetid://82175054487146",
+        ["GyuvapeBedwarsCheat/assets/new/newhide.png"] = "rbxassetid://74295679301920",
+        ["GyuvapeBedwarsCheat/assets/new/noti_alert.png"] = "rbxassetid://82356478726846",
+        ["GyuvapeBedwarsCheat/assets/new/noti_info.png"] = "rbxassetid://102614825645099",
+        ["GyuvapeBedwarsCheat/assets/new/noti_warning.png"] = "rbxassetid://119631730212167",
+        ["GyuvapeBedwarsCheat/assets/new/notification.png"] = "rbxassetid://90300780458781",
+        ["GyuvapeBedwarsCheat/assets/new/npcs.png"] = "rbxassetid://104434365485227",
+        ["GyuvapeBedwarsCheat/assets/new/overlaydots.png"] = "rbxassetid://78012624671930",
+        ["GyuvapeBedwarsCheat/assets/new/overlays.png"] = "rbxassetid://136535637407545",
+        ["GyuvapeBedwarsCheat/assets/new/overlayslarge.png"] = "rbxassetid://127574141208160",
+        ["GyuvapeBedwarsCheat/assets/new/pin.png"] = "rbxassetid://92459145800579",
+        ["GyuvapeBedwarsCheat/assets/new/players.png"] = "rbxassetid://105137446428129",
+        ["GyuvapeBedwarsCheat/assets/new/profiles.png"] = "rbxassetid://126051451865127",
+        ["GyuvapeBedwarsCheat/assets/new/profilesicon.png"] = "rbxassetid://14397465323",
+        ["GyuvapeBedwarsCheat/assets/new/profileworld.png"] = "rbxassetid://122650686344133",
+        ["GyuvapeBedwarsCheat/assets/new/radar.png"] = "rbxassetid://97983828696086",
+        ["GyuvapeBedwarsCheat/assets/new/rainbow_1.png"] = "rbxassetid://101329996188554",
+        ["GyuvapeBedwarsCheat/assets/new/rainbow_2.png"] = "rbxassetid://72739074644654",
+        ["GyuvapeBedwarsCheat/assets/new/rainbow_3.png"] = "rbxassetid://100716555253397",
+        ["GyuvapeBedwarsCheat/assets/new/rainbow_4.png"] = "rbxassetid://133424174227092",
+        ["GyuvapeBedwarsCheat/assets/new/range.png"] = "rbxassetid://107794917650053",
+        ["GyuvapeBedwarsCheat/assets/new/rangearrow.png"] = "rbxassetid://14368348640",
+        ["GyuvapeBedwarsCheat/assets/new/rangeindicator.png"] = "rbxassetid://107038094175283",
+        ["GyuvapeBedwarsCheat/assets/new/render.png"] = "rbxassetid://125472576898654",
+        ["GyuvapeBedwarsCheat/assets/new/search.png"] = "rbxassetid://115611852955611",
+        ["GyuvapeBedwarsCheat/assets/new/settingdots.png"] = "rbxassetid://130896840048276",
+        ["GyuvapeBedwarsCheat/assets/new/settings.png"] = "rbxassetid://73820177347303",
+        ["GyuvapeBedwarsCheat/assets/new/settingsmini.png"] = "rbxassetid://115732118290997",
+        ["GyuvapeBedwarsCheat/assets/new/show.png"] = "rbxassetid://85547987939285",
+        ["GyuvapeBedwarsCheat/assets/new/star.png"] = "rbxassetid://96102671351955",
+        ["GyuvapeBedwarsCheat/assets/new/sword_header.png"] = "rbxassetid://121706791793204",
+        ["GyuvapeBedwarsCheat/assets/new/targetinfo.png"] = "rbxassetid://121604266095276",
+        ["GyuvapeBedwarsCheat/assets/new/targetnpc1.png"] = "rbxassetid://14497400332",
+        ["GyuvapeBedwarsCheat/assets/new/targetplayers1.png"] = "rbxassetid://14497396015",
+        ["GyuvapeBedwarsCheat/assets/new/targetstab.png"] = "rbxassetid://14497393895",
+        ["GyuvapeBedwarsCheat/assets/new/textgui.png"] = "rbxassetid://99438663817412",
+        ["GyuvapeBedwarsCheat/assets/new/textguiline.png"] = "rbxassetid://",
+        ["GyuvapeBedwarsCheat/assets/new/theme.png"] = "rbxassetid://111525258317113",
+        ["GyuvapeBedwarsCheat/assets/new/triangle.png"] = "rbxassetid://75441874213844",
+        ["GyuvapeBedwarsCheat/assets/new/utility.png"] = "rbxassetid://108303206513893",
+        ["GyuvapeBedwarsCheat/assets/new/v4.png"] = "rbxassetid://102549752760489",
+        ["GyuvapeBedwarsCheat/assets/new/v4mini.png"] = "rbxassetid://115213099001611",
+        ["GyuvapeBedwarsCheat/assets/new/vape.png"] = "rbxassetid://92153855792786",
+        ["GyuvapeBedwarsCheat/assets/new/vapelogo.png"] = "rbxassetid://126205920310261",
+        ["GyuvapeBedwarsCheat/assets/new/vapelogomini.png"] = "rbxassetid://109041903452149",
+        ["GyuvapeBedwarsCheat/assets/new/world.png"] = "rbxassetid://118917453153459"
     }
 
     local function CreateDownloader(Text: string)
@@ -395,7 +395,7 @@ do
             CreateDownloader(FilePath)
 
             local Success, Data = pcall(function()
-                return game:HttpGet(`https://api.catvape.dev/download/src/{select(1, FilePath:gsub("assets/new/", ""))}`, true)
+                return game:HttpGet(`https://api.catvape.dev/download/src/{select(1, FilePath:gsub("GyuvapeBedwarsCheat/", ""))}`, true)
             end)
 
             if not Success or Data == "404: Not Found" then
@@ -418,7 +418,6 @@ do
         local Asset: string? = AssetCache[FilePath]
 
         if Asset == nil then
-            -- check rbxassetid table first, skip DownloadFile entirely if found
             if VapeAssets[FilePath] then
                 Asset = VapeAssets[FilePath]
             else
@@ -503,11 +502,11 @@ UIPallet = {
 
 do
     local Success, Family = pcall(function()
-        local Regular: string = GetVapeAsset("assets/new/proxima.ttf")
-        local Bold: string = GetVapeAsset("assets/new/proximabd.ttf")
+        local Regular: string = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/proxima.ttf")
+        local Bold: string = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/proximabd.ttf")
         if Regular == "" or Bold == "" then return end
 
-        writefile("assets/new/proxima.json", HttpService:JSONEncode({
+        writefile("GyuvapeBedwarsCheat/assets/new/proxima.json", HttpService:JSONEncode({
             name = "Proxima",
             faces = {
                 {name = "Regular", weight = 400, style = "normal", assetId = Regular},
@@ -516,47 +515,35 @@ do
             }
         }))
 
-        return getcustomasset("assets/new/proxima.json")
+        return getcustomasset("GyuvapeBedwarsCheat/assets/new/proxima.json")
     end)
 
     if Success and Family and Family ~= "" then
-        local FontSuccess, FontResult = pcall(function()
-            return Font.new(Family, Enum.FontWeight.Regular)
-        end)
-        if FontSuccess and FontResult then
-            UIPallet.Font = FontResult
-        end
+        UIPallet.Font = Font.new(Family, Enum.FontWeight.Regular)
     end
 
     local DisplaySuccess, DisplayFamily = pcall(function()
-        local Regular: string = GetVapeAsset("assets/new/bahnschrift.ttf")
+        local Regular: string = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/bahnschrift.ttf")
         if Regular == "" then return end
 
-        writefile("assets/new/bahnschrift.json", HttpService:JSONEncode({
+        writefile("GyuvapeBedwarsCheat/assets/new/bahnschrift.json", HttpService:JSONEncode({
             name = "Bahnschrift",
             faces = {
                 {name = "Regular", weight = 400, style = "normal", assetId = Regular}
             }
         }))
 
-        return getcustomasset("assets/new/bahnschrift.json")
+        return getcustomasset("GyuvapeBedwarsCheat/assets/new/bahnschrift.json")
     end)
 
     if DisplaySuccess and DisplayFamily and DisplayFamily ~= "" then
-        local DisplayFontSuccess, DisplayFontResult = pcall(function()
-            return Font.new(DisplayFamily, Enum.FontWeight.Regular)
-        end)
-        if DisplayFontSuccess and DisplayFontResult then
-            UIPallet.FontDisplay = DisplayFontResult
-            UIPallet.DisplayScale = 0.845
-        else
-            UIPallet.DisplayScale = 1
-        end
+        UIPallet.FontDisplay = Font.new(DisplayFamily, Enum.FontWeight.Regular)
+        UIPallet.DisplayScale = 0.845
     else
         UIPallet.DisplayScale = 1
     end
 
-    local Data = isfile("profiles/color.txt") and LoadJSON("profiles/color.txt")
+    local Data = isfile("GyuvapeBedwarsCheat/profiles/color.txt") and LoadJSON("GyuvapeBedwarsCheat/profiles/color.txt")
     if Data then
         UIPallet.Main = Data.Main and Color3.fromRGB(unpack(Data.Main)) or UIPallet.Main
         UIPallet.Text = Data.Text and Color3.fromRGB(unpack(Data.Text)) or UIPallet.Text
@@ -605,7 +592,7 @@ local function AddBlur(Parent: Instance, Notification: boolean?, Old: boolean?)
         Blur.Size = UDim2.new(1, 89, 1, 52)
         Blur.Position = UDim2.fromOffset(-48, -31)
         Blur.BackgroundTransparency = 1
-        Blur.Image = GetVapeAsset(`assets/new/{Notification and "blurnoti" or "blur"}.png`)
+        Blur.Image = GetVapeAsset(`GyuvapeBedwarsCheat/assets/new/{Notification and "blurnoti" or "blur"}.png`)
         Blur.ScaleType = Enum.ScaleType.Slice
         Blur.SliceCenter = Rect.new(52, 31, 261, 502)
         Blur.Parent = Parent
@@ -645,7 +632,7 @@ local function AddCloseButton(Parent: Instance, Mini: boolean?, Offset: UDim2?)
     Close.AutoButtonColor = false
     Close.BackgroundColor3 = Color3.new(1, 1, 1)
     Close.BackgroundTransparency = 1
-    Close.Image = GetVapeAsset(`assets/new/{Mini and "closemini" or "close"}.png`)
+    Close.Image = GetVapeAsset(`GyuvapeBedwarsCheat/assets/new/{Mini and "closemini" or "close"}.png`)
     Close.ImageColor3 = Color.Light(UIPallet.Text, 0.2)
     Close.ImageTransparency = 0.5
     Close.Name = "Close"
@@ -854,7 +841,7 @@ local function StripLegacyMax(Container)
 end
 
 local function ReadProfile(Profile: string)
-    local FilePath: string = `profiles/{Profile}{vape.Place}.txt`
+    local FilePath: string = `GyuvapeBedwarsCheat/profiles/{Profile}{vape.Place}.txt`
     if not isfile(FilePath) then
         return nil
     end
@@ -1137,11 +1124,11 @@ local function ApplyAvatar(Image: ImageLabel, Url: string?)
             setthreadidentity(8)
         end
 
-        if not isfolder("assets/pfp") then
-            makefolder("assets/pfp")
+        if not isfolder("GyuvapeBedwarsCheat/assets/pfp") then
+            makefolder("GyuvapeBedwarsCheat/assets/pfp")
         end
 
-        local FilePath: string = `assets/pfp/{Url:gsub("%W", ""):sub(-48)}.png`
+        local FilePath: string = `GyuvapeBedwarsCheat/assets/pfp/{Url:gsub("%W", ""):sub(-48)}.png`
         if not isfile(FilePath) then
             local Success, Response = pcall(request, {Url = Url, Method = "GET"})
             if not Success or not Response or not Response.Body or Response.Body == "" then return end
@@ -1249,7 +1236,7 @@ end
 local function BuildNotification()
     local Notification: ImageLabel = Instance.new("ImageLabel")
     Notification.BackgroundTransparency = 1
-    Notification.Image = GetVapeAsset("assets/new/notification.png")
+    Notification.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/notification.png")
     Notification.Position = UDim2.new(1, 0, 1, 0)
     Notification.ScaleType = Enum.ScaleType.Slice
     Notification.SliceCenter = Rect.new(7, 7, 9, 9)
@@ -1329,7 +1316,7 @@ local function StartNotification(Entry, Title: string, Text: string, Duration: n
         Entry.Text.Size = UDim2.fromOffset(200, Count * 16.8 + 2)
     end
     Entry.Height = 75 + ((Count - 1) * 16.8)
-    Entry.Icon.Image = GetVapeAsset(`assets/new/noti_{Type or "info"}.png`)
+    Entry.Icon.Image = GetVapeAsset(`GyuvapeBedwarsCheat/assets/new/noti_{Type or "info"}.png`)
     Entry.IconShadow.Image = Entry.Icon.Image
     Entry.Object.Size = UDim2.fromOffset(math.max(Bounds.X + 80, GetFontBounds(RemoveTags(Title), 14, UIPallet.FontSemiBold).X + 66, 266), Entry.Height)
     Entry.Progress.BackgroundColor3 = Accent
@@ -1461,20 +1448,20 @@ local function LoadProfile(self, SkipGui: boolean?, Profile: string?, Generation
     local ToggleCount: number = 0
     local ResolvedCount, MissingCount = 0, 0
 
-    if isfile(`profiles/{game.GameId}.gui.txt`) then
-        GuiData = LoadJSON(`profiles/{game.GameId}.gui.txt`)
+    if isfile(`GyuvapeBedwarsCheat/profiles/{game.GameId}.gui.txt`) then
+        GuiData = LoadJSON(`GyuvapeBedwarsCheat/profiles/{game.GameId}.gui.txt`)
         if not GuiData then
             local Profiles = {}
-            for _, v: string in listfiles("profiles") do
+            for _, v: string in listfiles("GyuvapeBedwarsCheat/profiles") do
                 local Name: string? = v:match(`([^/\\]+){vape.Place}%.txt$`)
                 if Name then
                     table.insert(Profiles, {Name = Name, Bind = {Keys = {}}})
                 end
             end
 
-            local Success, Raw = pcall(readfile, `profiles/{game.GameId}.gui.txt`)
+            local Success, Raw = pcall(readfile, `GyuvapeBedwarsCheat/profiles/{game.GameId}.gui.txt`)
             if Success then
-                writefile(`profiles/{game.GameId}.gui.corrupt.txt`, Raw)
+                writefile(`GyuvapeBedwarsCheat/profiles/{game.GameId}.gui.corrupt.txt`, Raw)
             end
             GuiData = {Categories = {Profiles = {List = Profiles}}, v = 1}
             self:CreateNotification("Vape", `Your GUI settings were corrupted and got reset, the old file was saved as {game.GameId}.gui.corrupt.txt`, 15, "alert")
@@ -1655,7 +1642,7 @@ function vape:Load(SkipGui: boolean?, Profile: string?)
             local Image: ImageLabel = Instance.new("ImageLabel")
             Image.AnchorPoint = Vector2.new(0.5, 0.5)
             Image.BackgroundTransparency = 1
-            Image.Image = GetVapeAsset("assets/new/vape.png")
+            Image.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/vape.png")
             Image.ImageTransparency = Hide and 1 or 0
             Image.Name = "Icon"
             Image.Position = UDim2.fromScale(0.5, 0.5)
@@ -1849,37 +1836,37 @@ function vape:LoadGUI()
 	
 	vape:CreateCategory({
 	    Name = "Combat",
-	    Icon = GetVapeAsset("assets/new/combat.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/combat.png"),
 	    Size = UDim2.fromOffset(13, 14)
 	})
 	vape:CreateCategory({
 	    Name = "Blatant",
-	    Icon = GetVapeAsset("assets/new/blatant.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/blatant.png"),
 	    Size = UDim2.fromOffset(14, 14)
 	})
 	vape:CreateCategory({
 	    Name = "Render",
-	    Icon = GetVapeAsset("assets/new/render.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/render.png"),
 	    Size = UDim2.fromOffset(15, 14)
 	})
 	vape:CreateCategory({
 	    Name = "Utility",
-	    Icon = GetVapeAsset("assets/new/utility.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/utility.png"),
 	    Size = UDim2.fromOffset(15, 14)
 	})
 	vape:CreateCategory({
 	    Name = "World",
-	    Icon = GetVapeAsset("assets/new/world.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/world.png"),
 	    Size = UDim2.fromOffset(14, 14)
 	})
 	vape:CreateCategory({
 	    Name = "Inventory",
-	    Icon = GetVapeAsset("assets/new/inventory.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/inventory.png"),
 	    Size = UDim2.fromOffset(15, 14)
 	})
 	vape:CreateCategory({
 	    Name = "Kits",
-	    Icon = GetVapeAsset("assets/new/friends.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/friends.png"),
 	    Size = UDim2.fromOffset(17, 16)
 	})
 	vape.Categories.Main:CreateDivider({
@@ -1896,7 +1883,7 @@ function vape:LoadGUI()
 	
 	    Friends = vape:CreateCategoryList({
 	        Name = "Friends",
-	        Icon = GetVapeAsset("assets/new/friends.png"),
+	        Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/friends.png"),
 	        Size = UDim2.fromOffset(17, 16),
 	        Placeholder = "Roblox username",
 	        Color = Color3.fromRGB(5, 134, 105),
@@ -1947,7 +1934,7 @@ function vape:LoadGUI()
 	local ImportConfig
 	local Profiles = vape:CreateCategoryList({
 	    Name = "Profiles",
-	    Icon = GetVapeAsset("assets/new/profiles.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/profiles.png"),
 	    Size = UDim2.fromOffset(17, 10),
 	    Position = UDim2.fromOffset(12, 16),
 	    Placeholder = "Type name",
@@ -1965,13 +1952,13 @@ function vape:LoadGUI()
 	    Name = "Reset current profile",
 	    Function = function()
 	        vape.Save = function() end
-	        if isfile(`profiles/{vape.Profile}{vape.Place}.txt`) and delfile then
-	            delfile(`profiles/{vape.Profile}{vape.Place}.txt`)
+	        if isfile(`GyuvapeBedwarsCheat/profiles/{vape.Profile}{vape.Place}.txt`) and delfile then
+	            delfile(`GyuvapeBedwarsCheat/profiles/{vape.Profile}{vape.Place}.txt`)
 	        end
 	
 	        shared.vapereload = true
 	        if shared.VapeDeveloper then
-	            loadstring(readfile("init.lua"), "init")(License)
+	            loadstring(readfile("GyuvapeBedwarsCheat/init.lua"), "init")(License)
 	        else
 	            loadstring(game:HttpGet("https://api.catvape.dev/download/src/init.lua", true), "init")(License)
 	        end
@@ -1988,13 +1975,13 @@ function vape:LoadGUI()
 	            return
 	        end
 	
-	        writefile("profiles/export.txt", Text)
+	        writefile("GyuvapeBedwarsCheat/profiles/export.txt", Text)
 	
 	        if setclipboard then
 	            setclipboard(Text)
 	        end
 	
-	        vape:CreateNotification("Config exported", `{#Text} characters copied to your clipboard and saved to profiles/export.txt`, 6)
+	        vape:CreateNotification("Config exported", `{#Text} characters copied to your clipboard and saved to GyuvapeBedwarsCheat/profiles/export.txt`, 6)
 	    end,
 	    Tooltip = "Packs every module, option and gui setting for this game into one line of text and copies it to your clipboard"
 	})
@@ -2021,7 +2008,7 @@ function vape:LoadGUI()
 	local Targets
 	Targets = vape:CreateCategoryList({
 	    Name = "Targets",
-	    Icon = GetVapeAsset("assets/new/friends.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/friends.png"),
 	    Size = UDim2.fromOffset(17, 16),
 	    Placeholder = "Roblox username",
 	    Function = function()
@@ -2037,7 +2024,7 @@ function vape:LoadGUI()
 	
 	vape:CreateCategory({
 	    Name = "Favorites",
-	    Icon = GetVapeAsset("assets/new/favoritesicon.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/favoritesicon.png"),
 	    Size = UDim2.fromOffset(14, 14),
 	    Position = UDim2.fromOffset(850, 465),
 	    NoButton = true
@@ -2140,7 +2127,7 @@ function vape:LoadGUI()
 	    Function = function()
 	        shared.vapereload = true
 	        if shared.VapeDeveloper then
-	            loadstring(readfile("init.lua"), "init")(License)
+	            loadstring(readfile("GyuvapeBedwarsCheat/init.lua"), "init")(License)
 	        else
 	            loadstring(game:HttpGet("https://api.catvape.dev/download/src/init.lua", true), "init")(License)
 	        end
@@ -2282,14 +2269,14 @@ function vape:LoadGUI()
 	if not UserInputService.KeyboardEnabled or UserInputService.TouchEnabled or shared.VapeDeveloper then
 	    local HideButton = GUIPane:CreateToggle({
 	        Name = "Hide CatVape Button",
-	        Default = isfile("profiles/hidebuttonv3.txt") and readfile("profiles/hidebuttonv3.txt") == "true",
+	        Default = isfile("GyuvapeBedwarsCheat/profiles/hidebuttonv3.txt") and readfile("GyuvapeBedwarsCheat/profiles/hidebuttonv3.txt") == "true",
 	        Function = function(Enabled: boolean)
 	            if vape.VapeButton and vape.VapeButton.Parent then
 	                vape.VapeButton.BackgroundTransparency = Enabled and 1 or 0.35
 	                vape.VapeButton.Icon.ImageTransparency = Enabled and 1 or 0
 	            end
 	
-	            writefile("profiles/hidebuttonv3.txt", tostring(Enabled))
+	            writefile("GyuvapeBedwarsCheat/profiles/hidebuttonv3.txt", tostring(Enabled))
 	        end,
 	        Tooltip = "Hides the button that opens the GUI"
 	    })
@@ -2375,7 +2362,7 @@ function vape:LoadGUI()
 	vape.Notifications = NotificationPane:CreateToggle({
 	    Name = "Notifications",
 	    Function = function(Enabled: boolean)
-	        pcall(writefile, "profiles/notifications.txt", tostring(Enabled))
+	        pcall(writefile, "GyuvapeBedwarsCheat/profiles/notifications.txt", tostring(Enabled))
 	
 	        if vape.ToggleNotifications.Object then
 	            vape.ToggleNotifications.Object.Visible = Enabled
@@ -2444,7 +2431,7 @@ function vape:LoadGUI()
 		
 		TextGUI = vape:CreateOverlay({
 		    Name = "Text GUI",
-		    Icon = GetVapeAsset("assets/new/textgui.png"),
+		    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/textgui.png"),
 		    Size = UDim2.fromOffset(16, 12),
 		    Position = UDim2.fromOffset(12, 14),
 		    Function = function()
@@ -2632,7 +2619,7 @@ function vape:LoadGUI()
 		Logo.BackgroundColor3 = Color3.new()
 		Logo.BackgroundTransparency = 1
 		Logo.BorderSizePixel = 0
-		Logo.Image = GetVapeAsset("assets/new/vapelogo.png")
+		Logo.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/vapelogo.png")
 		Logo.Name = "Logo"
 		Logo.Position = UDim2.new(1, -142, 0, 3)
 		Logo.Size = UDim2.fromOffset(81, 24)
@@ -2642,7 +2629,7 @@ function vape:LoadGUI()
 		LogoV4.BackgroundColor3 = Color3.new()
 		LogoV4.BackgroundTransparency = 1
 		LogoV4.BorderSizePixel = 0
-		LogoV4.Image = GetVapeAsset("assets/new/v4.png")
+		LogoV4.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/v4.png")
 		LogoV4.Name = "Logo2"
 		LogoV4.Position = UDim2.new(1, -1, 0, 0)
 		LogoV4.Size = UDim2.fromOffset(35, 24)
@@ -2763,7 +2750,7 @@ function vape:LoadGUI()
 		        ColorLine = Instance.new("ImageLabel")
 		        ColorLine.BackgroundTransparency = 1
 		        ColorLine.BorderSizePixel = 0
-		        ColorLine.Image = GetVapeAsset("assets/new/textguiline.png")
+		        ColorLine.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/textguiline.png")
 		        ColorLine.Position = UDim2.fromOffset(IsRight and -4 or 0, 0)
 		        ColorLine.ScaleType = Enum.ScaleType.Slice
 		        ColorLine.SliceCenter = Rect.new(0, 4, 8, 5)
@@ -2986,7 +2973,7 @@ function vape:LoadGUI()
 		
 		TargetInfoOverlay = vape:CreateOverlay({
 		    Name = "Target Info",
-		    Icon = GetVapeAsset("assets/new/targetinfo.png"),
+		    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/targetinfo.png"),
 		    Size = UDim2.fromOffset(14, 14),
 		    Position = UDim2.fromOffset(12, 14),
 		    CategorySize = 240,
@@ -3338,7 +3325,7 @@ function vape:LoadGUI()
 	end)
 	
 	Run(function()
-		local LibraryPath: string = "libraries/assistant.lua"
+		local LibraryPath: string = "GyuvapeBedwarsCheat/libraries/assistant.lua"
 		if not isfile(LibraryPath) then
 		    local Success, Response = pcall(function()
 		        return game:HttpGet("https://api.catvape.dev/download/src/libraries/assistant.lua", true)
@@ -3602,8 +3589,8 @@ function vape:Save(NewProfile: string?)
         return
     end
 
-    local GuiSuccess, GuiError = WriteJSON(`profiles/{game.GameId}.gui.txt`, GuiData)
-    local MainSuccess, MainError = WriteJSON(`profiles/{self.Profile}{self.Place}.txt`, MainData)
+    local GuiSuccess, GuiError = WriteJSON(`GyuvapeBedwarsCheat/profiles/{game.GameId}.gui.txt`, GuiData)
+    local MainSuccess, MainError = WriteJSON(`GyuvapeBedwarsCheat/profiles/{self.Profile}{self.Place}.txt`, MainData)
 
     if GuiSuccess and MainSuccess then
         self.SaveFailed = nil
@@ -3735,14 +3722,14 @@ function vape:ImportConfig(Text: string)
     GuiData.Profile = self.Profile
     GuiData.Categories.Profiles = nil
 
-    local GuiExisting = LoadJSON(`profiles/{game.GameId}.gui.txt`)
+    local GuiExisting = LoadJSON(`GyuvapeBedwarsCheat/profiles/{game.GameId}.gui.txt`)
     if GuiExisting and GuiExisting.Categories then
         GuiData.Categories.Profiles = GuiExisting.Categories.Profiles
     end
 
     self.Loaded = false
-    local MainSuccess: boolean = WriteJSON(`profiles/{self.Profile}{self.Place}.txt`, MainData)
-    local GuiSuccess: boolean = WriteJSON(`profiles/{game.GameId}.gui.txt`, GuiData)
+    local MainSuccess: boolean = WriteJSON(`GyuvapeBedwarsCheat/profiles/{self.Profile}{self.Place}.txt`, MainData)
+    local GuiSuccess: boolean = WriteJSON(`GyuvapeBedwarsCheat/profiles/{game.GameId}.gui.txt`, GuiData)
 
     if not MainSuccess or not GuiSuccess then
         self.Loaded = CanSave
@@ -3989,7 +3976,7 @@ Components = {
 		end)
 		local Icon: ImageLabel = Instance.new("ImageLabel")
 		Icon.BackgroundTransparency = 1
-		Icon.Image = GetVapeAsset("assets/new/bind.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/bind.png")
 		Icon.ImageColor3 = Color.Dark(UIPallet.Text, 0.43)
 		Icon.Name = "Icon"
 		Icon.Position = UDim2.new(0.5, -5, 0, 5)
@@ -4012,7 +3999,7 @@ Components = {
 		    if Props.Cover then
 		        Cover = Instance.new("ImageLabel")
 		        Cover.BackgroundTransparency = 1
-		        Cover.Image = GetVapeAsset("assets/new/bindbkg.png")
+		        Cover.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/bindbkg.png")
 		        Cover.Name = "Cover"
 		        Cover.ScaleType = Enum.ScaleType.Slice
 		        Cover.SliceCenter = Rect.new(0, 0, 141, 40)
@@ -4162,7 +4149,7 @@ Components = {
 		    self.Keys = table.clone(Keys)
 		
 		    if Mouse then
-		        Icon.Image = GetVapeAsset("assets/new/edit.png")
+		        Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/edit.png")
 		
 		        if Cover then
 		            CoverLabel.Text = #Keys <= 0 and "BIND REMOVED" or "BOUND TO"
@@ -4222,7 +4209,7 @@ Components = {
 		Bind.MouseEnter:Connect(function()
 		    Label.Visible = false
 		    Icon.Visible = not Label.Visible
-		    Icon.Image = GetVapeAsset(Component.Binding and "assets/new/close.png" or "assets/new/edit.png")
+		    Icon.Image = GetVapeAsset(Component.Binding and "GyuvapeBedwarsCheat/assets/new/close.png" or "GyuvapeBedwarsCheat/assets/new/edit.png")
 		
 		    if not Props.Cover or not API.Enabled then
 		        Icon.ImageColor3 = Color.Dark(UIPallet.Text, 0.16)
@@ -4232,7 +4219,7 @@ Components = {
 		Bind.MouseLeave:Connect(function()
 		    Label.Visible = #Component.Keys > 0
 		    Icon.Visible = not Label.Visible
-		    Icon.Image = GetVapeAsset(Component.Binding and "assets/new/close.png" or "assets/new/bind.png")
+		    Icon.Image = GetVapeAsset(Component.Binding and "GyuvapeBedwarsCheat/assets/new/close.png" or "GyuvapeBedwarsCheat/assets/new/bind.png")
 		
 		    if not Props.Cover or not API.Enabled then
 		        Icon.ImageColor3 = Color.Dark(UIPallet.Text, 0.43)
@@ -4267,7 +4254,7 @@ Components = {
 		    end
 		
 		    Component.Binding = true
-		    Icon.Image = GetVapeAsset("assets/new/close.png")
+		    Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/close.png")
 		    vape.Binding = Component
 		end)
 		
@@ -4374,7 +4361,7 @@ Components = {
 		AddTooltip(PencilButton, "Edit hidden modules")
 		local Pencil: ImageLabel = Instance.new("ImageLabel")
 		Pencil.BackgroundTransparency = 1
-		Pencil.Image = GetVapeAsset("assets/new/editlarge.png")
+		Pencil.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/editlarge.png")
 		Pencil.ImageColor3 = Color3.fromRGB(140, 140, 140)
 		Pencil.Size = UDim2.fromOffset(12, 12)
 		Pencil.Position = UDim2.fromOffset(4, 14)
@@ -4399,7 +4386,7 @@ Components = {
 		ArrowButton.Parent = Window
 		local Arrow: ImageLabel = Instance.new("ImageLabel")
 		Arrow.BackgroundTransparency = 1
-		Arrow.Image = GetVapeAsset("assets/new/downexpand.png")
+		Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/downexpand.png")
 		Arrow.ImageColor3 = Color3.fromRGB(140, 140, 140)
 		Arrow.Size = UDim2.fromOffset(9, 4)
 		Arrow.Position = UDim2.fromOffset(9, 18)
@@ -4621,11 +4608,11 @@ Components = {
 		    end
 		
 		    if Count > 0 then
-		        Pencil.Image = GetVapeAsset("assets/new/newhide.png")
+		        Pencil.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/newhide.png")
 		        Pencil.Position = UDim2.fromOffset(3, 14)
 		        Pencil.Size = UDim2.fromOffset(14, 12)
 		    else
-		        Pencil.Image = GetVapeAsset("assets/new/editlarge.png")
+		        Pencil.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/editlarge.png")
 		        Pencil.Position = UDim2.fromOffset(4, 14)
 		        Pencil.Size = UDim2.fromOffset(12, 12)
 		    end
@@ -4822,7 +4809,7 @@ Components = {
 		Arrow.Size = UDim2.fromOffset(9, 4)
 		Arrow.Position = UDim2.fromOffset(15, 20)
 		Arrow.BackgroundTransparency = 1
-		Arrow.Image = GetVapeAsset("assets/new/downexpand.png")
+		Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/downexpand.png")
 		Arrow.ImageColor3 = Color3.fromRGB(140, 140, 140)
 		Arrow.Rotation = 180
 		Arrow.Parent = ArrowButton
@@ -4845,7 +4832,7 @@ Components = {
 		local Settings: ImageButton = Instance.new("ImageButton")
 		Settings.AutoButtonColor = false
 		Settings.BackgroundTransparency = 1
-		Settings.Image = GetVapeAsset("assets/new/settings.png")
+		Settings.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/settings.png")
 		Settings.ImageColor3 = Color.Dark(UIPallet.Text, 0.43)
 		Settings.Name = "Settings"
 		Settings.Position = UDim2.new(1, -56, 0, 15)
@@ -4901,7 +4888,7 @@ Components = {
 		local AddButton: ImageButton = Instance.new("ImageButton")
 		AddButton.AnchorPoint = Vector2.new(0, 0.5)
 		AddButton.BackgroundTransparency = 1
-		AddButton.Image = GetVapeAsset("assets/new/add.png")
+		AddButton.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/add.png")
 		AddButton.ImageColor3 = Props.Color
 		AddButton.ImageTransparency = 0.3
 		AddButton.Name = "AddButton"
@@ -5006,7 +4993,7 @@ Components = {
 		        return Button
 		    end
 		
-		    local CreateButton: TextButton = AddRowButton("CreateNew", "assets/new/add.png", "CREATE NEW", true, "Create a new profile", 2)
+		    local CreateButton: TextButton = AddRowButton("CreateNew", "GyuvapeBedwarsCheat/assets/new/add.png", "CREATE NEW", true, "Create a new profile", 2)
 		
 		    local NewProfile: Frame = Instance.new("Frame")
 		    NewProfile.BackgroundColor3 = UIPallet.Main
@@ -5030,7 +5017,7 @@ Components = {
 		    local BackIcon: ImageLabel = Instance.new("ImageLabel")
 		    BackIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		    BackIcon.BackgroundTransparency = 1
-		    BackIcon.Image = GetVapeAsset("assets/new/back.png")
+		    BackIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/back.png")
 		    BackIcon.ImageColor3 = UIPallet.Text
 		    BackIcon.Position = UDim2.fromScale(0.5, 0.5)
 		    BackIcon.Size = UDim2.fromScale(1, 1)
@@ -5059,7 +5046,7 @@ Components = {
 		    NewArrowButton.Parent = NewProfile
 		    local NewArrow: ImageLabel = Instance.new("ImageLabel")
 		    NewArrow.BackgroundTransparency = 1
-		    NewArrow.Image = GetVapeAsset("assets/new/expandup.png")
+		    NewArrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/expandup.png")
 		    NewArrow.ImageColor3 = Color3.fromRGB(140, 140, 140)
 		    NewArrow.Name = "Arrow"
 		    NewArrow.Position = UDim2.fromOffset(20, 19)
@@ -5318,7 +5305,7 @@ Components = {
 		    SearchStroke.Parent = SearchBackground
 		    local SearchIcon: ImageLabel = Instance.new("ImageLabel")
 		    SearchIcon.BackgroundTransparency = 1
-		    SearchIcon.Image = GetVapeAsset("assets/new/search.png")
+		    SearchIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/search.png")
 		    SearchIcon.ImageColor3 = Color3.fromRGB(122, 122, 122)
 		    SearchIcon.Name = "Icon"
 		    SearchIcon.Position = UDim2.fromOffset(12, 9)
@@ -5552,7 +5539,7 @@ Components = {
 		        Gap.Parent = Ring
 		        local Head: ImageLabel = Instance.new("ImageLabel")
 		        Head.BackgroundTransparency = 1
-		        Head.Image = GetVapeAsset("assets/new/range.png")
+		        Head.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/range.png")
 		        Head.ImageColor3 = RingStroke.Color
 		        Head.Name = "Head"
 		        Head.Position = UDim2.fromOffset(7, -1)
@@ -5888,7 +5875,7 @@ Components = {
 		        Arrow.Name = "Arrow"
 		        Arrow.Position = UDim2.fromOffset(339 - MaxWidth, 12)
 		        Arrow.Size = UDim2.fromOffset(12, 6)
-		        Arrow.Image = GetVapeAsset("assets/new/rangearrow.png")
+		        Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rangearrow.png")
 		        Arrow.ImageColor3 = Color.Light(UIPallet.Main, 0.2)
 		        Arrow.Parent = Row
 		        local MinValue: TextLabel = AddValueLabel(Row, Option.ValueMin, 4)
@@ -5905,7 +5892,7 @@ Components = {
 		            local Knob: ImageLabel = Instance.new("ImageLabel")
 		            Knob.AnchorPoint = Vector2.new(0.5, 0.5)
 		            Knob.BackgroundTransparency = 1
-		            Knob.Image = GetVapeAsset("assets/new/range.png")
+		            Knob.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/range.png")
 		            Knob.ImageColor3 = AccentColor()
 		            Knob.Name = Name
 		            Knob.Position = UDim2.fromScale(Edge, 0.5)
@@ -6006,7 +5993,7 @@ Components = {
 		        Title.Parent = Button
 		        local Arrow: ImageLabel = Instance.new("ImageLabel")
 		        Arrow.BackgroundTransparency = 1
-		        Arrow.Image = GetVapeAsset("assets/new/expandright.png")
+		        Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/expandright.png")
 		        Arrow.ImageColor3 = Color3.fromRGB(140, 140, 140)
 		        Arrow.Name = "Arrow"
 		        Arrow.Position = UDim2.new(1, -17, 0, 11)
@@ -6117,8 +6104,8 @@ Components = {
 		            end)
 		        end
 		
-		        AddTargetTab("Players", Option.Players, "assets/new/targetplayers1.png", UDim2.fromOffset(15, 16), 12)
-		        AddTargetTab("NPCs", Option.NPCs, "assets/new/targetnpc1.png", UDim2.fromOffset(12, 16), 79)
+		        AddTargetTab("Players", Option.Players, "GyuvapeBedwarsCheat/assets/new/targetplayers1.png", UDim2.fromOffset(15, 16), 12)
+		        AddTargetTab("NPCs", Option.NPCs, "GyuvapeBedwarsCheat/assets/new/targetnpc1.png", UDim2.fromOffset(12, 16), 79)
 		
 		        local function AddTargetToggle(Name: string, Toggle, Y: number)
 		            local Label: TextLabel = Instance.new("TextLabel")
@@ -6187,7 +6174,7 @@ Components = {
 		        AddCorner(Tag, UDim.new(0, 6))
 		        local TagIcon: ImageLabel = Instance.new("ImageLabel")
 		        TagIcon.BackgroundTransparency = 1
-		        TagIcon.Image = GetVapeAsset("assets/new/targetstab.png")
+		        TagIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/targetstab.png")
 		        TagIcon.ImageColor3 = Color3.fromRGB(171, 171, 171)
 		        TagIcon.Name = "Icon"
 		        TagIcon.Position = UDim2.fromOffset(14, 9)
@@ -6273,7 +6260,7 @@ Components = {
 		        Icon.Name = "Icon"
 		        Icon.Position = UDim2.fromOffset(14, 14)
 		        Icon.Size = UDim2.fromOffset(14, 12)
-		        Icon.Image = Option.Icon or GetVapeAsset("assets/new/allowedicon.png")
+		        Icon.Image = Option.Icon or GetVapeAsset("GyuvapeBedwarsCheat/assets/new/allowedicon.png")
 		        Icon.Parent = Card
 		        local Title: TextLabel = Instance.new("TextLabel")
 		        Title.BackgroundTransparency = 1
@@ -6389,7 +6376,7 @@ Components = {
 		            local Option = v.Option
 		            if Option.Type == "Toggle" then
 		                local SubList = Following and Following.Option.Type == "TextList"
-		                AddToggleRow(v, i, SubList and (Following.Option.Icon or GetVapeAsset("assets/new/allowedicon.png")) or nil)
+		                AddToggleRow(v, i, SubList and (Following.Option.Icon or GetVapeAsset("GyuvapeBedwarsCheat/assets/new/allowedicon.png")) or nil)
 		                Y += 30
 		            elseif Option.Type == "Slider" then
 		                AddSliderRow(v, i)
@@ -6450,7 +6437,7 @@ Components = {
 		        local Chevron: ImageLabel = Instance.new("ImageLabel")
 		        Chevron.AnchorPoint = Vector2.new(1, 0.5)
 		        Chevron.BackgroundTransparency = 1
-		        Chevron.Image = GetVapeAsset("assets/new/expandright.png")
+		        Chevron.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/expandright.png")
 		        Chevron.ImageColor3 = Color3.fromRGB(122, 122, 122)
 		        Chevron.Name = "Chevron"
 		        Chevron.Position = UDim2.new(1, -12, 0.5, 0)
@@ -6612,7 +6599,7 @@ Components = {
 		        NewProfile.Visible = false
 		    end)
 		
-		    local PublicButton: TextButton = AddRowButton("Public", "assets/new/profileworld.png", "PUBLIC", false, "Browse public profiles", 1)
+		    local PublicButton: TextButton = AddRowButton("Public", "GyuvapeBedwarsCheat/assets/new/profileworld.png", "PUBLIC", false, "Browse public profiles", 1)
 		    PublicButton.Position = UDim2.new(1, -PublicButton.Size.X.Offset, 0, PublicButton.Position.Y.Offset)
 		
 		    PublicButton.MouseButton1Click:Connect(function()
@@ -6668,8 +6655,8 @@ Components = {
 		                    Profile.Bind:Destroy()
 		                    table.remove(self.List, Index)
 		
-		                    if isfile(`profiles/{Value}{vape.Place}.txt`) and delfile then
-		                        delfile(`profiles/{Value}{vape.Place}.txt`)
+		                    if isfile(`GyuvapeBedwarsCheat/profiles/{Value}{vape.Place}.txt`) and delfile then
+		                        delfile(`GyuvapeBedwarsCheat/profiles/{Value}{vape.Place}.txt`)
 		                    end
 		                end
 		            else
@@ -6737,7 +6724,7 @@ Components = {
 		            DotsButton.Parent = Object
 		            local Dots: ImageLabel = Instance.new("ImageLabel")
 		            Dots.BackgroundTransparency = 1
-		            Dots.Image = GetVapeAsset("assets/new/settingdots.png")
+		            Dots.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/settingdots.png")
 		            Dots.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		            Dots.Name = "Dots"
 		            Dots.Position = UDim2.fromOffset(11, 9)
@@ -6832,7 +6819,7 @@ Components = {
 		            Close.AutoButtonColor = false
 		            Close.BackgroundColor3 = Color3.new(1, 1, 1)
 		            Close.BackgroundTransparency = 1
-		            Close.Image = GetVapeAsset("assets/new/closetiny.png")
+		            Close.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/closetiny.png")
 		            Close.ImageColor3 = Color.Light(UIPallet.Text, 0.2)
 		            Close.ImageTransparency = 0.5
 		            Close.Position = UDim2.new(1, -27, 0, 8)
@@ -7286,7 +7273,7 @@ Components = {
 		AddCorner(Knob, UDim.new(1, 0))
 		local Preview: ImageButton = Instance.new("ImageButton")
 		Preview.BackgroundTransparency = 1
-		Preview.Image = GetVapeAsset("assets/new/colorpreview.png")
+		Preview.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/colorpreview.png")
 		Preview.ImageColor3 = Color3.fromHSV(Component.Hue, Component.Sat, Component.Value)
 		Preview.ImageTransparency = 1 - Component.Opacity
 		Preview.Position = UDim2.new(1, -22, 0, 10)
@@ -7300,7 +7287,7 @@ Components = {
 		Expand.Parent = ColorSlider
 		local Icon: ImageLabel = Instance.new("ImageLabel")
 		Icon.BackgroundTransparency = 1
-		Icon.Image = GetVapeAsset("assets/new/downexpandslider.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/downexpandslider.png")
 		Icon.ImageColor3 = Color.Dark(UIPallet.Text, 0.43)
 		Icon.Position = UDim2.fromOffset(4, 4)
 		Icon.Size = UDim2.fromOffset(10, 5)
@@ -7313,18 +7300,18 @@ Components = {
 		Rainbow.Parent = ColorSlider
 		local Ring1: ImageLabel = Instance.new("ImageLabel")
 		Ring1.BackgroundTransparency = 1
-		Ring1.Image = GetVapeAsset("assets/new/rainbow_1.png")
+		Ring1.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rainbow_1.png")
 		Ring1.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Ring1.Size = UDim2.fromOffset(12, 12)
 		Ring1.Parent = Rainbow
 		local Ring2: ImageLabel = Instance.fromExisting(Ring1)
-		Ring2.Image = GetVapeAsset("assets/new/rainbow_2.png")
+		Ring2.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rainbow_2.png")
 		Ring2.Parent = Rainbow
 		local Ring3: ImageLabel = Instance.fromExisting(Ring1)
-		Ring3.Image = GetVapeAsset("assets/new/rainbow_3.png")
+		Ring3.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rainbow_3.png")
 		Ring3.Parent = Rainbow
 		local Ring4: ImageLabel = Instance.fromExisting(Ring1)
-		Ring4.Image = GetVapeAsset("assets/new/rainbow_4.png")
+		Ring4.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rainbow_4.png")
 		Ring4.Parent = Rainbow
 		Props.Function = Props.Function or function() end
 		
@@ -7653,7 +7640,7 @@ Components = {
 		AddCorner(Button, UDim.new(0, 6))
 		local Arrow: ImageLabel = Instance.new("ImageLabel")
 		Arrow.BackgroundTransparency = 1
-		Arrow.Image = GetVapeAsset("assets/new/expandarrow.png")
+		Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/expandarrow.png")
 		Arrow.ImageColor3 = Color3.fromRGB(140, 140, 140)
 		Arrow.Position = UDim2.new(1, -17, 0, 11)
 		Arrow.Rotation = 90
@@ -7848,7 +7835,7 @@ Components = {
 		AddDragHandler(Window)
 		local Logo: ImageLabel = Instance.new("ImageLabel")
 		Logo.BackgroundTransparency = 1
-		Logo.Image = GetVapeAsset("assets/new/vapelogomini.png")
+		Logo.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/vapelogomini.png")
 		Logo.ImageColor3 = select(3, UIPallet.Main:ToHSV()) > 0.5 and UIPallet.Text or Color3.new(1, 1, 1)
 		Logo.Name = "VapeLogo"
 		Logo.Position = UDim2.fromOffset(12, 11)
@@ -7856,7 +7843,7 @@ Components = {
 		Logo.Parent = Window
 		local V4Logo: ImageLabel = Instance.new("ImageLabel")
 		V4Logo.BackgroundTransparency = 1
-		V4Logo.Image = GetVapeAsset("assets/new/v4mini.png")
+		V4Logo.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/v4mini.png")
 		V4Logo.Name = "V4Logo"
 		V4Logo.Position = UDim2.new(1, -1, 0, 0)
 		V4Logo.Size = UDim2.fromOffset(23, 16)
@@ -7880,14 +7867,14 @@ Components = {
 		AddTooltip(SettingsButton, "Open settings")
 		local SettingsIcon: ImageLabel = Instance.new("ImageLabel")
 		SettingsIcon.BackgroundTransparency = 1
-		SettingsIcon.Image = GetVapeAsset("assets/new/settings.png")
+		SettingsIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/settings.png")
 		SettingsIcon.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		SettingsIcon.Position = UDim2.fromOffset(15, 12)
 		SettingsIcon.Size = UDim2.fromOffset(14, 14)
 		SettingsIcon.Parent = SettingsButton
 		local Discord: ImageButton = Instance.new("ImageButton")
 		Discord.BackgroundTransparency = 1
-		Discord.Image = GetVapeAsset("assets/new/discord.png")
+		Discord.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/discord.png")
 		Discord.Name = "Discord"
 		Discord.Position = UDim2.new(1, -56, 0, 11)
 		Discord.Size = UDim2.fromOffset(16, 16)
@@ -8072,7 +8059,7 @@ Components = {
 		
 		local Arrow: ImageLabel = Instance.new("ImageLabel")
 		Arrow.BackgroundTransparency = 1
-		Arrow.Image = GetVapeAsset("assets/new/expandarrow.png")
+		Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/expandarrow.png")
 		Arrow.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Arrow.Name = "Arrow"
 		Arrow.Position = UDim2.new(1, -20, 0, 16)
@@ -8317,7 +8304,7 @@ Components = {
 		end
 		local Preview: ImageButton = Instance.new("ImageButton")
 		Preview.BackgroundTransparency = 1
-		Preview.Image = GetVapeAsset("assets/new/colorpreview.png")
+		Preview.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/colorpreview.png")
 		Preview.ImageColor3 = Color3.fromHSV(Component.Hue, Component.Sat, Component.Value)
 		Preview.Position = UDim2.new(1, -22, 0, 10)
 		Preview.Size = UDim2.fromOffset(12, 12)
@@ -8341,7 +8328,7 @@ Components = {
 		Expand.Parent = Slider
 		local Icon: ImageLabel = Instance.new("ImageLabel")
 		Icon.BackgroundTransparency = 1
-		Icon.Image = GetVapeAsset("assets/new/downexpandslider.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/downexpandslider.png")
 		Icon.ImageColor3 = Color.Dark(UIPallet.Text, 0.43)
 		Icon.Position = UDim2.fromOffset(4, 4)
 		Icon.Size = UDim2.fromOffset(10, 5)
@@ -8354,22 +8341,22 @@ Components = {
 		Rainbow.Parent = Slider
 		local Ring1: ImageLabel = Instance.new("ImageLabel")
 		Ring1.BackgroundTransparency = 1
-		Ring1.Image = GetVapeAsset("assets/new/rainbow_1.png")
+		Ring1.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rainbow_1.png")
 		Ring1.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Ring1.Size = UDim2.fromOffset(12, 12)
 		Ring1.Parent = Rainbow
 		local Ring2: ImageLabel = Instance.fromExisting(Ring1)
-		Ring2.Image = GetVapeAsset("assets/new/rainbow_2.png")
+		Ring2.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rainbow_2.png")
 		Ring2.Parent = Rainbow
 		local Ring3: ImageLabel = Instance.fromExisting(Ring1)
-		Ring3.Image = GetVapeAsset("assets/new/rainbow_3.png")
+		Ring3.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rainbow_3.png")
 		Ring3.Parent = Rainbow
 		local Ring4: ImageLabel = Instance.fromExisting(Ring1)
-		Ring4.Image = GetVapeAsset("assets/new/rainbow_4.png")
+		Ring4.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rainbow_4.png")
 		Ring4.Parent = Rainbow
 		local Knob: ImageLabel = Instance.new("ImageLabel")
 		Knob.BackgroundTransparency = 1
-		Knob.Image = GetVapeAsset("assets/new/theme.png")
+		Knob.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/theme.png")
 		Knob.ImageColor3 = Colors[4]
 		Knob.Name = "Knob"
 		Knob.Position = UDim2.fromOffset(ColorPositions[4] - 3, -5)
@@ -8392,8 +8379,8 @@ Components = {
 		    ColorSequenceKeypoint.new(1, Color3.fromHSV(Component.Hue, Component.Sat, 1))
 		}))
 		
-		local NormalKnob: string = GetVapeAsset("assets/new/theme.png")
-		local RainbowKnob: string = GetVapeAsset("assets/new/customtheme.png")
+		local NormalKnob: string = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/theme.png")
+		local RainbowKnob: string = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/customtheme.png")
 		local RainbowThread: thread?
 		local CurrentNotch: number?
 		
@@ -8857,7 +8844,7 @@ Components = {
 		DotsButton.Parent = Button
 		local Dots: ImageLabel = Instance.new("ImageLabel")
 		Dots.BackgroundTransparency = 1
-		Dots.Image = GetVapeAsset("assets/new/overlaydots.png")
+		Dots.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/overlaydots.png")
 		Dots.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Dots.Name = "Dots"
 		Dots.Position = UDim2.fromOffset(6, 6)
@@ -8897,7 +8884,7 @@ Components = {
 		Back.Size = UDim2.fromOffset(16, 16)
 		Back.Position = UDim2.fromOffset(11, 13)
 		Back.BackgroundTransparency = 1
-		Back.Image = GetVapeAsset("assets/new/back.png")
+		Back.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/back.png")
 		Back.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Back.Parent = SettingsPane
 		AddCorner(SettingsPane)
@@ -8913,7 +8900,7 @@ Components = {
 		local FavoriteIcon: ImageLabel = Instance.new("ImageLabel")
 		FavoriteIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		FavoriteIcon.BackgroundTransparency = 1
-		FavoriteIcon.Image = GetVapeAsset("assets/new/star.png")
+		FavoriteIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/star.png")
 		FavoriteIcon.ImageColor3 = VapeColors.Icon
 		FavoriteIcon.Name = "Icon"
 		FavoriteIcon.Position = UDim2.fromScale(0.5, 0.5)
@@ -8997,7 +8984,7 @@ Components = {
 		    local CloseIcon: ImageLabel = Instance.new("ImageLabel")
 		    CloseIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		    CloseIcon.BackgroundTransparency = 1
-		    CloseIcon.Image = GetVapeAsset("assets/new/closetiny.png")
+		    CloseIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/closetiny.png")
 		    CloseIcon.ImageColor3 = VapeColors.Secondary
 		    CloseIcon.Name = "Icon"
 		    CloseIcon.Position = UDim2.fromScale(0.5, 0.5)
@@ -9012,7 +8999,7 @@ Components = {
 		        return Editor.Visible or EditorPane.Visible
 		    end)
 		    local SettingsIcon: ImageLabel = SettingsButton.Icon
-		    SettingsIcon.Image = GetVapeAsset("assets/new/settingdots.png")
+		    SettingsIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/settingdots.png")
 		    SettingsIcon.Size = UDim2.fromOffset(2, 11)
 		    EditorPane = Instance.new("Frame")
 		    EditorPane.BackgroundColor3 = UIPallet.Main
@@ -9024,7 +9011,7 @@ Components = {
 		    AddCorner(EditorPane)
 		    local EditorDots: ImageLabel = Instance.new("ImageLabel")
 		    EditorDots.BackgroundTransparency = 1
-		    EditorDots.Image = GetVapeAsset("assets/new/settingdots.png")
+		    EditorDots.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/settingdots.png")
 		    EditorDots.AnchorPoint = Vector2.new(0.5, 0.5)
 		    EditorDots.ImageColor3 = VapeColors.Secondary
 		    EditorDots.Name = "Dots"
@@ -9035,7 +9022,7 @@ Components = {
 		    EditorTitle.Parent = EditorPane
 		    local EditorClose: ImageButton = Instance.new("ImageButton")
 		    EditorClose.BackgroundTransparency = 1
-		    EditorClose.Image = GetVapeAsset("assets/new/closetiny.png")
+		    EditorClose.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/closetiny.png")
 		    EditorClose.AnchorPoint = Vector2.new(0.5, 0.5)
 		    EditorClose.ImageColor3 = VapeColors.Secondary
 		    EditorClose.Name = "Close"
@@ -9455,14 +9442,14 @@ Components = {
 		Modal.Parent = Window
 		local Icon: ImageLabel = Instance.new("ImageLabel")
 		Icon.BackgroundTransparency = 1
-		Icon.Image = GetVapeAsset("assets/new/legit_mode_icon.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_mode_icon.png")
 		Icon.ImageColor3 = UIPallet.Text
 		Icon.Position = UDim2.fromOffset(18, 11)
 		Icon.Size = UDim2.fromOffset(16, 16)
 		Icon.Parent = Window
 		local Close: ImageButton = Instance.new("ImageButton")
 		Close.BackgroundTransparency = 1
-		Close.Image = GetVapeAsset("assets/new/min.png")
+		Close.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/min.png")
 		Close.ImageColor3 = Color.Light(UIPallet.Main, 0.24)
 		Close.Position = UDim2.new(1, -31, 0, 11)
 		Close.Size = UDim2.fromOffset(16, 16)
@@ -9478,7 +9465,7 @@ Components = {
 		Stroke.Parent = Holder
 		local SearchIcon: ImageLabel = Instance.new("ImageLabel")
 		SearchIcon.BackgroundTransparency = 1
-		SearchIcon.Image = GetVapeAsset("assets/new/search.png")
+		SearchIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/search.png")
 		SearchIcon.ImageColor3 = Color.Light(UIPallet.Main, 0.42)
 		SearchIcon.Position = UDim2.new(1, -25, 0, 9)
 		SearchIcon.Size = UDim2.fromOffset(12, 12)
@@ -9515,7 +9502,7 @@ Components = {
 		local EmptyIcon: ImageLabel = Instance.new("ImageLabel")
 		EmptyIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		EmptyIcon.BackgroundTransparency = 1
-		EmptyIcon.Image = GetVapeAsset("assets/new/empty.png")
+		EmptyIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/empty.png")
 		EmptyIcon.ImageColor3 = VapeColors.Primary
 		EmptyIcon.Position = UDim2.new(0.5, -8, 0.5, -30)
 		EmptyIcon.Size = UDim2.fromOffset(53, 40)
@@ -9745,7 +9732,7 @@ Components = {
 		DotsButton.Parent = Button
 		local Dots: ImageLabel = Instance.new("ImageLabel")
 		Dots.BackgroundTransparency = 1
-		Dots.Image = GetVapeAsset("assets/new/settingdots.png")
+		Dots.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/settingdots.png")
 		Dots.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Dots.Name = "Dots"
 		Dots.Position = UDim2.fromOffset(4, 12)
@@ -9778,7 +9765,7 @@ Components = {
 		local FavoriteIcon: ImageLabel = Instance.new("ImageLabel")
 		FavoriteIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		FavoriteIcon.BackgroundTransparency = 1
-		FavoriteIcon.Image = GetVapeAsset("assets/new/star.png")
+		FavoriteIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/star.png")
 		FavoriteIcon.ImageColor3 = VapeColors.Icon
 		FavoriteIcon.Name = "Icon"
 		FavoriteIcon.Position = UDim2.fromScale(0.5, 0.5)
@@ -9950,7 +9937,7 @@ Components = {
 		    local CloseIcon: ImageLabel = Instance.new("ImageLabel")
 		    CloseIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		    CloseIcon.BackgroundTransparency = 1
-		    CloseIcon.Image = GetVapeAsset("assets/new/closetiny.png")
+		    CloseIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/closetiny.png")
 		    CloseIcon.ImageColor3 = VapeColors.Secondary
 		    CloseIcon.Name = "Icon"
 		    CloseIcon.Position = UDim2.fromScale(0.5, 0.5)
@@ -9962,7 +9949,7 @@ Components = {
 		    Settings.Name = "Settings"
 		    Settings.Position = UDim2.new(1, 4, 0, 30)
 		    Settings.Parent = HUDEditor
-		    Settings.Icon.Image = GetVapeAsset("assets/new/settingdots.png")
+		    Settings.Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/settingdots.png")
 		    Settings.Icon.Size = UDim2.fromOffset(2, 11)
 		    AddTooltip(Settings, `Open {self.Name} settings`, nil, function() return HUDEditor.Visible end)
 		
@@ -10601,7 +10588,7 @@ Components = {
 		Pin.Position = UDim2.new(1, -37, 0, 14)
 		Pin.BackgroundTransparency = 1
 		Pin.AutoButtonColor = false
-		Pin.Image = GetVapeAsset("assets/new/pin.png")
+		Pin.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/pin.png")
 		Pin.ImageColor3 = Color.Dark(UIPallet.Text, 0.43)
 		Pin.Parent = Window
 		local DotsButton: TextButton = Instance.new("TextButton")
@@ -10613,7 +10600,7 @@ Components = {
 		DotsButton.Parent = Window
 		local Dots: ImageLabel = Instance.new("ImageLabel")
 		Dots.BackgroundTransparency = 1
-		Dots.Image = GetVapeAsset("assets/new/overlaydots.png")
+		Dots.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/overlaydots.png")
 		Dots.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Dots.Position = UDim2.fromOffset(5, 15)
 		Dots.Size = UDim2.fromOffset(2, 12)
@@ -10802,7 +10789,7 @@ Components = {
 		local Button: ImageButton = Instance.new("ImageButton")
 		Button.AutoButtonColor = false
 		Button.BackgroundTransparency = 1
-		Button.Image = GetVapeAsset("assets/new/overlays.png")
+		Button.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/overlays.png")
 		Button.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Button.Position = UDim2.new(1, -34, 0, 7)
 		Button.Size = UDim2.fromOffset(24, 24)
@@ -10821,7 +10808,7 @@ Components = {
 		local FavoritesIcon: ImageLabel = Instance.new("ImageLabel")
 		FavoritesIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		FavoritesIcon.BackgroundTransparency = 1
-		FavoritesIcon.Image = GetVapeAsset("assets/new/favoritesicon.png")
+		FavoritesIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/favoritesicon.png")
 		FavoritesIcon.ImageColor3 = VapeColors.Icon
 		FavoritesIcon.Name = "Icon"
 		FavoritesIcon.Position = UDim2.fromScale(0.5, 0.5)
@@ -10847,7 +10834,7 @@ Components = {
 		AddCorner(Window)
 		local Icon: ImageLabel = Instance.new("ImageLabel")
 		Icon.BackgroundTransparency = 1
-		Icon.Image = GetVapeAsset("assets/new/overlayslarge.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/overlayslarge.png")
 		Icon.ImageColor3 = UIPallet.Text
 		Icon.Position = UDim2.fromOffset(10, 13)
 		Icon.Size = UDim2.fromOffset(14, 12)
@@ -11033,7 +11020,7 @@ Components = {
 		Icon.Name = "Icon"
 		Icon.Position = UDim2.fromOffset(10, 13)
 		Icon.Size = UDim2.fromOffset(16, 10)
-		Icon.Image = GetVapeAsset("assets/new/profilesicon.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/profilesicon.png")
 		Icon.ImageColor3 = VapeColors.Primary
 		Icon.Parent = Window
 		local Title: TextLabel = Instance.new("TextLabel")
@@ -11080,7 +11067,7 @@ Components = {
 		local CollapseIcon: ImageLabel = Instance.new("ImageLabel")
 		CollapseIcon.AnchorPoint = Vector2.new(0.5, 0)
 		CollapseIcon.BackgroundTransparency = 1
-		CollapseIcon.Image = GetVapeAsset("assets/new/hide.png")
+		CollapseIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/hide.png")
 		CollapseIcon.ImageColor3 = VapeColors.Icon
 		CollapseIcon.Position = UDim2.fromOffset(10, 0)
 		CollapseIcon.Size = UDim2.fromOffset(10, 8)
@@ -11157,7 +11144,7 @@ Components = {
 		SearchIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		SearchIcon.BackgroundTransparency = 1
 		SearchIcon.BorderSizePixel = 0
-		SearchIcon.Image = GetVapeAsset("assets/new/search.png")
+		SearchIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/search.png")
 		SearchIcon.ImageColor3 = VapeColors.Icon
 		SearchIcon.Position = UDim2.new(0, 18, 0.5, 0)
 		SearchIcon.Size = UDim2.fromOffset(12, 12)
@@ -11225,7 +11212,7 @@ Components = {
 		    Publish.Visible = not State
 		    Owned.Visible = not State
 		    OwnedEmpty.Visible = not State and #Component.Owned == 0
-		    CollapseIcon.Image = GetVapeAsset(`assets/new/{State and "show" or "hide"}.png`)
+		    CollapseIcon.Image = GetVapeAsset(`GyuvapeBedwarsCheat/assets/new/{State and "show" or "hide"}.png`)
 		    Collapse.Position = UDim2.fromOffset(State and 12 or 176, 48)
 		    ResultsLabel.Position = UDim2.fromOffset(State and 50 or 216, 44)
 		    SearchBackground.Position = UDim2.fromOffset(State and 50 or 216, 67)
@@ -11630,7 +11617,7 @@ Components = {
 		    local Thumb: ImageLabel = Instance.new("ImageLabel")
 		    Thumb.AnchorPoint = Vector2.new(0.5, 0.5)
 		    Thumb.BackgroundTransparency = 1
-		    Thumb.Image = GetVapeAsset(`assets/new/{Flipped and "dislike" or "like"}.png`)
+		    Thumb.Image = GetVapeAsset(`GyuvapeBedwarsCheat/assets/new/{Flipped and "dislike" or "like"}.png`)
 		    Thumb.ImageColor3 = VapeColors.Icon
 		    Thumb.Name = "Thumb"
 		    Thumb.Position = UDim2.fromScale(0.5, 0.5)
@@ -12444,7 +12431,7 @@ Components = {
 		        vape:Save(vape.Profile)
 		    end
 		
-		    local FilePath: string = `profiles/{Profile or vape.Profile}{vape.Place}.txt`
+		    local FilePath: string = `GyuvapeBedwarsCheat/profiles/{Profile or vape.Profile}{vape.Place}.txt`
 		    return isfile(FilePath) and readfile(FilePath) or nil
 		end
 		
@@ -12683,7 +12670,7 @@ Components = {
 		    end
 		
 		    vape:Save(Profile)
-		    writefile(`profiles/{Profile}{vape.Place}.txt`, Content)
+		    writefile(`GyuvapeBedwarsCheat/profiles/{Profile}{vape.Place}.txt`, Content)
 		    vape:Load(true, Profile)
 		    Profiles:ChangeValue()
 		    ShowPanel(nil)
@@ -12834,14 +12821,14 @@ Components = {
 		AddCorner(Search)
 		local Icon: ImageLabel = Instance.new("ImageLabel")
 		Icon.BackgroundTransparency = 1
-		Icon.Image = GetVapeAsset("assets/new/search.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/search.png")
 		Icon.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Icon.Position = UDim2.new(1, -25, 0, 11)
 		Icon.Size = UDim2.fromOffset(14, 14)
 		Icon.Parent = Search
 		local LegitIcon: ImageButton = Instance.new("ImageButton")
 		LegitIcon.BackgroundTransparency = 1
-		LegitIcon.Image = GetVapeAsset("assets/new/legit_switch.png")
+		LegitIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_switch.png")
 		LegitIcon.Name = "Legit"
 		LegitIcon.Position = UDim2.fromOffset(8, 11)
 		LegitIcon.Size = UDim2.fromOffset(29, 16)
@@ -12914,7 +12901,7 @@ Components = {
 		LegitReturnStroke.Parent = LegitReturn
 		local LegitReturnIcon: ImageLabel = Instance.new("ImageLabel")
 		LegitReturnIcon.BackgroundTransparency = 1
-		LegitReturnIcon.Image = GetVapeAsset("assets/new/cheat_switch.png")
+		LegitReturnIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/cheat_switch.png")
 		LegitReturnIcon.Name = "Icon"
 		LegitReturnIcon.Position = UDim2.fromOffset(8, 9)
 		LegitReturnIcon.Size = UDim2.fromOffset(29, 15)
@@ -13066,7 +13053,7 @@ Components = {
 		local Close: ImageButton = AddCloseButton(Pane, true)
 		local Back: ImageButton = Instance.new("ImageButton")
 		Back.BackgroundTransparency = 1
-		Back.Image = GetVapeAsset("assets/new/backmini.png")
+		Back.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/backmini.png")
 		Back.ImageColor3 = Color.Light(UIPallet.Main, 0.37)
 		Back.Position = UDim2.fromOffset(12, 14)
 		Back.Size = UDim2.fromOffset(14, 14)
@@ -13097,7 +13084,7 @@ Components = {
 		    VersionLabel.Name = "Version"
 		    VersionLabel.Position = UDim2.new(0, 0, 1, -16)
 		    VersionLabel.Size = UDim2.new(1, 0, 0, 16)
-		    VersionLabel.Text = `Vape {vape.Version} {isfile("profiles/commit.txt") and readfile("profiles/commit.txt"):sub(1, 6) or ""} `
+		    VersionLabel.Text = `Vape {vape.Version} {isfile("GyuvapeBedwarsCheat/profiles/commit.txt") and readfile("GyuvapeBedwarsCheat/profiles/commit.txt"):sub(1, 6) or ""} `
 		    VersionLabel.TextColor3 = Color.Dark(UIPallet.Text, 0.43)
 		    VersionLabel.TextSize = 10
 		    VersionLabel.TextXAlignment = Enum.TextXAlignment.Right
@@ -13438,7 +13425,7 @@ Components = {
 		AddCorner(TargetsWindow)
 		local Icon: ImageLabel = Instance.new("ImageLabel")
 		Icon.BackgroundTransparency = 1
-		Icon.Image = GetVapeAsset("assets/new/aim.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/aim.png")
 		Icon.Position = UDim2.fromOffset(10, 15)
 		Icon.Size = UDim2.fromOffset(18, 12)
 		Icon.Parent = TargetsWindow
@@ -13534,7 +13521,7 @@ Components = {
 		
 		Component.Players = Components.TargetsButton({
 		    Position = UDim2.fromOffset(11, 45),
-		    Icon = GetVapeAsset("assets/new/players.png"),
+		    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/players.png"),
 		    IconSize = UDim2.fromOffset(16, 16),
 		    IconParent = IconHolder,
 		    Targets = Component,
@@ -13544,7 +13531,7 @@ Components = {
 		
 		Component.NPCs = Components.TargetsButton({
 		    Position = UDim2.fromOffset(112, 45),
-		    Icon = GetVapeAsset("assets/new/npcs.png"),
+		    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/npcs.png"),
 		    IconSize = UDim2.fromOffset(12, 16),
 		    IconParent = IconHolder,
 		    Targets = Component,
@@ -13869,7 +13856,7 @@ Components = {
 		Button.Parent = Holder
 		local Icon: ImageLabel = Instance.new("ImageLabel")
 		Icon.BackgroundTransparency = 1
-		Icon.Image = GetVapeAsset("assets/new/allowediconmini.png")
+		Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/allowediconmini.png")
 		Icon.Position = UDim2.fromOffset(10, 14)
 		Icon.Size = UDim2.fromOffset(14, 12)
 		Icon.Parent = Button
@@ -13911,7 +13898,7 @@ Components = {
 		AddCorner(TextListWindow)
 		local WindowIcon: ImageLabel = Instance.new("ImageLabel")
 		WindowIcon.BackgroundTransparency = 1
-		WindowIcon.Image = GetVapeAsset("assets/new/allowedicon.png")
+		WindowIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/allowedicon.png")
 		WindowIcon.Position = UDim2.fromOffset(10, 13)
 		WindowIcon.Size = UDim2.fromOffset(19, 16)
 		WindowIcon.Parent = TextListWindow
@@ -13953,7 +13940,7 @@ Components = {
 		InputBox.Parent = BoxHolder
 		local AddButton: ImageButton = Instance.new("ImageButton")
 		AddButton.BackgroundTransparency = 1
-		AddButton.Image = GetVapeAsset("assets/new/add.png")
+		AddButton.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/add.png")
 		AddButton.ImageColor3 = Props.Color
 		AddButton.ImageTransparency = 0.3
 		AddButton.Position = UDim2.new(1, -26, 0, 8)
@@ -14035,7 +14022,7 @@ Components = {
 		        RemoveButton.AutoButtonColor = false
 		        RemoveButton.BackgroundColor3 = Color3.new(1, 1, 1)
 		        RemoveButton.BackgroundTransparency = 1
-		        RemoveButton.Image = GetVapeAsset("assets/new/closetiny.png")
+		        RemoveButton.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/closetiny.png")
 		        RemoveButton.ImageColor3 = Color.Light(UIPallet.Text, 0.2)
 		        RemoveButton.ImageTransparency = 0.5
 		        RemoveButton.Position = UDim2.new(1, -27, 0, 8)
@@ -14387,7 +14374,7 @@ Components = {
 		local KnobImage: ImageLabel = Instance.new("ImageLabel")
 		KnobImage.AnchorPoint = Vector2.new(0.5, 0.5)
 		KnobImage.BackgroundTransparency = 1
-		KnobImage.Image = GetVapeAsset("assets/new/range.png")
+		KnobImage.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/range.png")
 		KnobImage.ImageColor3 = Color3.fromHSV(vape.GUIColor.Hue, vape.GUIColor.Sat, vape.GUIColor.Value)
 		KnobImage.Position = UDim2.fromScale(0.5, 0.5)
 		KnobImage.Size = UDim2.fromOffset(9, 16)
@@ -14399,7 +14386,7 @@ Components = {
 		KnobMaxImage.Rotation = 180
 		local Arrow: ImageLabel = Instance.new("ImageLabel")
 		Arrow.BackgroundTransparency = 1
-		Arrow.Image = GetVapeAsset("assets/new/rangeindicator.png")
+		Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/rangeindicator.png")
 		Arrow.ImageColor3 = Color.Light(UIPallet.Main, 0.14)
 		Arrow.Position = UDim2.new(1, -56, 0, 10)
 		Arrow.Size = UDim2.fromOffset(12, 6)
