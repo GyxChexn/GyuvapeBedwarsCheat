@@ -114,18 +114,25 @@ if not shared.VapeIndependent then
     if isfile("games/universal.lua") then
         loadstring(readfile("games/universal.lua"), "universal")({})
     end
-    
-    local placeScript = "games/" .. tostring(game.PlaceId) .. ".lua"
+
+    local gameFileId
+    if game.GameId == 2619619496 then
+        gameFileId = (game.PlaceId == 6872265039) and 6872265039 or 6872274481
+    else
+        gameFileId = game.PlaceId
+    end
+
+    local placeScript = "games/" .. tostring(gameFileId) .. ".lua"
     pcall(DownloadFile, placeScript)
     if isfile(placeScript) then
-        loadstring(readfile(placeScript), tostring(game.PlaceId))({})
+        loadstring(readfile(placeScript), tostring(gameFileId))({})
     end
-    
+
     pcall(DownloadFile, "libraries/main.lua")
     if isfile("libraries/main.lua") then
         loadstring(readfile("libraries/main.lua"), "main")({})
     end
-    
+
     FinishLoading()
 else
     vape.Init = FinishLoading
