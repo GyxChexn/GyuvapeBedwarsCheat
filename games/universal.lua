@@ -14,7 +14,7 @@ end
 local function DownloadFile(Path: string, Func)
     if not isfile(Path) then
         local Success, Response = pcall(function()
-            return game:HttpGet(`https://api.catvape.dev/download/src/{select(1, Path:gsub("catsix/", ""))}`, true)
+            return game:HttpGet(`https://api.catvape.dev/download/src/{select(1, Path:gsub("GyuvapeBedwarsCheat/", ""))}`, true)
         end)
         if not Success or Response == "404: Not Found" then
             error(Response)
@@ -82,7 +82,7 @@ local function AddBlur(Parent: Instance)
     Blur.Size = UDim2.new(1, 89, 1, 52)
     Blur.Position = UDim2.fromOffset(-48, -31)
     Blur.BackgroundTransparency = 1
-    Blur.Image = GetVapeAsset("catsix/assets/new/blur.png")
+    Blur.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/blur.png")
     Blur.ScaleType = Enum.ScaleType.Slice
     Blur.SliceCenter = Rect.new(52, 31, 261, 502)
     Blur.Parent = Parent
@@ -263,10 +263,10 @@ local function MotorMove(Target: BasePart, Offset: CFrame)
     task.delay(0, Part.Destroy, Part)
 end
 
-local Hash = loadstring(DownloadFile("catsix/libraries/hash.lua"), "hash")()
-local PredictionLib = loadstring(DownloadFile("catsix/libraries/prediction.lua"), "prediction")()
-Entity = loadstring(DownloadFile("catsix/libraries/entity.lua"), "entitylibrary")()
-local Render = loadstring(DownloadFile("catsix/libraries/render.lua"), "render")()
+local Hash = loadstring(DownloadFile("GyuvapeBedwarsCheat/libraries/hash.lua"), "hash")()
+local PredictionLib = loadstring(DownloadFile("GyuvapeBedwarsCheat/libraries/prediction.lua"), "prediction")()
+Entity = loadstring(DownloadFile("GyuvapeBedwarsCheat/libraries/entity.lua"), "entitylibrary")()
+local Render = loadstring(DownloadFile("GyuvapeBedwarsCheat/libraries/render.lua"), "render")()
 local Whitelist = {
     alreadychecked = {},
     customtags = {},
@@ -711,7 +711,7 @@ Run(function()
         if Success then
             return SendToast({
                 toastTitle = Text,
-                iconImage = GetVapeAsset("catsix/assets/new/vape.png"),
+                iconImage = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/vape.png"),
                 swipeUpDismiss = true,
                 onActivated = function() end
             })
@@ -782,7 +782,7 @@ Run(function()
         IconFrame.Parent = MainFrame
         local Icon: ImageLabel = Instance.new("ImageLabel")
         Icon.Size = UDim2.fromOffset(36, 36)
-        Icon.Image = GetVapeAsset("catsix/assets/new/vape.png")
+        Icon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/vape.png")
         Icon.BackgroundTransparency = 1
         Icon.Parent = IconFrame
         Constraint.MaxSize = Vector2.new(math.max(GetFontBounds(Text, 20, TextLabel.FontFace).X + 80, 600), math.huge)
@@ -820,7 +820,7 @@ Run(function()
 
         if not First or Whitelist.textdata ~= Whitelist.olddata then
             if not First then
-                Whitelist.olddata = isfile("catsix/profiles/whitelist.json") and readfile("catsix/profiles/whitelist.json") or nil
+                Whitelist.olddata = isfile("GyuvapeBedwarsCheat/profiles/whitelist.json") and readfile("GyuvapeBedwarsCheat/profiles/whitelist.json") or nil
             end
 
             local Decoded, Result = pcall(function()
@@ -856,7 +856,7 @@ Run(function()
             if Whitelist.textdata ~= Whitelist.olddata then
                 Whitelist.olddata = Whitelist.textdata
                 pcall(function()
-                    writefile("catsix/profiles/whitelist.json", Whitelist.textdata)
+                    writefile("GyuvapeBedwarsCheat/profiles/whitelist.json", Whitelist.textdata)
                 end)
             end
         end
@@ -3852,7 +3852,7 @@ Run(function()
 	    Arrow.BackgroundTransparency = 1
 	    Arrow.BorderSizePixel = 0
 	    Arrow.Visible = false
-	    Arrow.Image = GetVapeAsset("catsix/assets/new/arrowmodule.png")
+	    Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/arrowmodule.png")
 	    Arrow.ImageColor3 = Entity.getEntityColor(Ent) or Color3.fromHSV(Color.Hue, Color.Sat, Color.Value)
 	    Arrow.Parent = Folder
 	    Reference[Ent] = Arrow
@@ -6198,7 +6198,7 @@ Run(function()
 	
 	Radar = vape:CreateOverlay({
 	    Name = "Radar",
-	    Icon = GetVapeAsset("catsix/assets/new/radaricon.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/radaricon.png"),
 	    Size = UDim2.fromOffset(14, 14),
 	    Position = UDim2.fromOffset(12, 13),
 	    Function = function(Callback: boolean)
@@ -6427,7 +6427,7 @@ Run(function()
 	
 	SessionInfo = vape:CreateOverlay({
 	    Name = "Session Info",
-	    Icon = GetVapeAsset("catsix/assets/new/textguiicon.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/textguiicon.png"),
 	    Size = UDim2.fromOffset(16, 12),
 	    Position = UDim2.fromOffset(12, 14),
 	    Function = function(Callback: boolean)
@@ -6498,8 +6498,8 @@ Run(function()
 	Hide = SessionInfo:CreateTextList({
 	    Name = "Blacklist",
 	    Tooltip = "Name of entry to hide.",
-	    Icon = GetVapeAsset("catsix/assets/new/blockedicon.png"),
-	    Tab = GetVapeAsset("catsix/assets/new/blockedtab.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/blockedicon.png"),
+	    Tab = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/blockedtab.png"),
 	    TabSize = UDim2.fromOffset(21, 16),
 	    Color = Color3.fromRGB(250, 50, 56)
 	})
@@ -8093,7 +8093,7 @@ Run(function()
 	Atmosphere = vape.Legit:CreateModule({
 	    Name = "Atmosphere",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_atmosphere.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_atmosphere.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            for _, v: Instance in Lighting:GetChildren() do
@@ -8193,7 +8193,7 @@ Run(function()
 	Breadcrumbs = vape.Legit:CreateModule({
 	    Name = "Breadcrumbs",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_breadcrumbs.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_breadcrumbs.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Point = Instance.new("Attachment")
@@ -8315,7 +8315,7 @@ Run(function()
 	Cape = vape.Legit:CreateModule({
 	    Name = "Cape",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_cape.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_cape.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Part = Instance.new("Part")
@@ -8386,7 +8386,7 @@ Run(function()
 	ChinaHat = vape.Legit:CreateModule({
 	    Name = "China Hat",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_chinahat.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_chinahat.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            if vape.ThreadFix then
@@ -8562,7 +8562,7 @@ Run(function()
 	Clock = vape.Legit:CreateModule({
 	    Name = "Clock",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_clock.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_clock.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            repeat
@@ -8800,7 +8800,7 @@ Run(function()
 	Compass = vape.Legit:CreateModule({
 	    Name = "Compass",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_compass.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_compass.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Compass:Clean(RunService.RenderStepped:Connect(Update))
@@ -8859,7 +8859,7 @@ Run(function()
 	local Arrow: ImageLabel = Instance.new("ImageLabel")
 	Arrow.AnchorPoint = Vector2.new(0.5, 0)
 	Arrow.BackgroundTransparency = 1
-	Arrow.Image = GetVapeAsset("catsix/assets/new/compassarrow.png")
+	Arrow.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/compassarrow.png")
 	Arrow.Position = UDim2.fromOffset(StripCentre, 15)
 	Arrow.Size = UDim2.fromOffset(19, 32)
 	Arrow.Parent = Strip
@@ -8901,7 +8901,7 @@ Run(function()
 	local Last = {}
 	local PositiveColor: Color3 = Color3.fromRGB(5, 134, 105)
 	local NegativeColor: Color3 = Color3.fromRGB(250, 50, 56)
-	local TriangleArrow: string = GetVapeAsset("catsix/assets/new/triangle.png")
+	local TriangleArrow: string = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/triangle.png")
 	local DigitWidth: number = GetFontBounds("0", 19, UIPallet.Font).X
 	local Holder, Horizontal, Vertical
 	local HorizontalMaterial, VerticalMaterial
@@ -9018,7 +9018,7 @@ Run(function()
 	Coords = vape.Legit:CreateModule({
 	    Name = "Coords",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_coords.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_coords.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Coords:Clean(RunService.RenderStepped:Connect(Update))
@@ -9564,7 +9564,7 @@ Run(function()
 	Disguise = vape.Legit:CreateModule({
 	    Name = "Disguise",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_disguise.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_disguise.png"),
 	    Function = function(Callback: boolean)
 	        if vape.ThreadFix then
 	            setthreadidentity(8)
@@ -9685,7 +9685,7 @@ Run(function()
 	FFlag = vape.Legit:CreateModule({
 	    Name = "FFlagEditor",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_fflageditor.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_fflageditor.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Apply()
@@ -9713,12 +9713,12 @@ Run(function()
 	FFlag:CreateButton({
 	    Name = "Import from file",
 	    Function = function()
-	        if not isfile("catsix/fflags.json") then
-	            SendNotification("Vape", "No catsix/fflags.json to read", 12, "warning")
+	        if not isfile("GyuvapeBedwarsCheat/fflags.json") then
+	            SendNotification("Vape", "No GyuvapeBedwarsCheat/fflags.json to read", 12, "warning")
 	            return
 	        end
 	
-	        Ingest(readfile("catsix/fflags.json"), "catsix/fflags.json")
+	        Ingest(readfile("GyuvapeBedwarsCheat/fflags.json"), "GyuvapeBedwarsCheat/fflags.json")
 	    end
 	})
 	FFlag:CreateButton({
@@ -9741,13 +9741,13 @@ Run(function()
 	        if Success and UnpackFlags(Blob) == Plain then
 	            Copied, Packed = Blob, true
 	        end
-	        writefile("catsix/fflags.json", Plain)
+	        writefile("GyuvapeBedwarsCheat/fflags.json", Plain)
 	
 	        if setclipboard then
 	            setclipboard(Copied)
 	        end
 	
-	        SendNotification("Vape", Packed and `Wrote catsix/fflags.json and copied {#Copied} characters to your clipboard, {math.floor(#Copied / #Plain * 100)}% of the raw json` or `Wrote catsix/fflags.json and copied the raw json, packing it did not read back so it was left alone`, 12, Packed and "info" or "warning")
+	        SendNotification("Vape", Packed and `Wrote GyuvapeBedwarsCheat/fflags.json and copied {#Copied} characters to your clipboard, {math.floor(#Copied / #Plain * 100)}% of the raw json` or `Wrote GyuvapeBedwarsCheat/fflags.json and copied the raw json, packing it did not read back so it was left alone`, 12, Packed and "info" or "warning")
 	    end
 	})
 	FFlag:CreateButton({
@@ -9769,7 +9769,7 @@ Run(function()
 	FOV = vape.Legit:CreateModule({
 	    Name = "FOV",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_fov.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_fov.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            OldFOV = Camera.FieldOfView
@@ -9798,7 +9798,7 @@ Run(function()
 	FPS = vape.Legit:CreateModule({
 	    Name = "FPS",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_fps.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_fps.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            local Frames: {number} = {}
@@ -9874,10 +9874,10 @@ Run(function()
 	local LeftClicks: {number} = {}
 	local RightClicks: {number} = {}
 	local ArrowIcons: {[string]: string} = {
-	    W = GetVapeAsset("catsix/assets/new/key_up.png"),
-	    A = GetVapeAsset("catsix/assets/new/key_left.png"),
-	    S = GetVapeAsset("catsix/assets/new/key_down.png"),
-	    D = GetVapeAsset("catsix/assets/new/key_right.png")
+	    W = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/key_up.png"),
+	    A = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/key_left.png"),
+	    S = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/key_down.png"),
+	    D = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/key_right.png")
 	}
 	local Keybinds: {[Enum.KeyCode]: string} = {
 	    [Enum.KeyCode.W] = "W",
@@ -10062,7 +10062,7 @@ Run(function()
 	Keystrokes = vape.Legit:CreateModule({
 	    Name = "Keystrokes",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_keystrokes.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_keystrokes.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Keystrokes:Clean(UserInputService.InputBegan:Connect(function(Input: InputObject)
@@ -10165,19 +10165,19 @@ Run(function()
 	MouseIcons.Parent = Holder
 	LeftMouseIcon = Instance.new("ImageLabel")
 	LeftMouseIcon.BackgroundTransparency = 1
-	LeftMouseIcon.Image = GetVapeAsset("catsix/assets/new/key_lmb.png")
+	LeftMouseIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/key_lmb.png")
 	LeftMouseIcon.ImageColor3 = ReleasedBackground
 	LeftMouseIcon.Name = "LMB"
 	LeftMouseIcon.Size = UDim2.fromOffset(50.2, 48)
 	LeftMouseIcon.Parent = MouseIcons
 	RightMouseIcon = LeftMouseIcon:Clone()
-	RightMouseIcon.Image = GetVapeAsset("catsix/assets/new/key_rmb.png")
+	RightMouseIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/key_rmb.png")
 	RightMouseIcon.Name = "RMB"
 	RightMouseIcon.Position = UDim2.fromOffset(40, 0)
 	RightMouseIcon.Parent = MouseIcons
 	MiddleMouseIcon = Instance.new("ImageLabel")
 	MiddleMouseIcon.BackgroundTransparency = 1
-	MiddleMouseIcon.Image = GetVapeAsset("catsix/assets/new/key_mmb.png")
+	MiddleMouseIcon.Image = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/key_mmb.png")
 	MiddleMouseIcon.ImageColor3 = Color3.fromRGB(225, 225, 225)
 	MiddleMouseIcon.Name = "MMB"
 	MiddleMouseIcon.Position = UDim2.fromOffset(43, 14)
@@ -10220,7 +10220,7 @@ Run(function()
 	Memory = vape.Legit:CreateModule({
 	    Name = "Memory",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_memory.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_memory.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            repeat
@@ -10270,7 +10270,7 @@ Run(function()
 	Ping = vape.Legit:CreateModule({
 	    Name = "Ping",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_ping.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_ping.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            repeat
@@ -10369,7 +10369,7 @@ Run(function()
 	SongBeats = vape.Legit:CreateModule({
 	    Name = "Song Beats",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_songbeats.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_songbeats.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            SongObject = Instance.new("Sound")
@@ -10460,7 +10460,7 @@ Run(function()
 	Speedmeter = vape.Legit:CreateModule({
 	    Name = "Speedmeter",
 	    Category = "HUD",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_speedmeter.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_speedmeter.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            repeat
@@ -10513,7 +10513,7 @@ Run(function()
 	TimeChanger = vape.Legit:CreateModule({
 	    Name = "Time Changer",
 	    Category = "Game",
-	    Icon = GetVapeAsset("catsix/assets/new/legit_timechanger.png"),
+	    Icon = GetVapeAsset("GyuvapeBedwarsCheat/assets/new/legit_timechanger.png"),
 	    Function = function(Callback: boolean)
 	        if Callback then
 	            Old = Lighting.TimeOfDay
