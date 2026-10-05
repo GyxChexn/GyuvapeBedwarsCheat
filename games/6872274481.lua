@@ -30300,6 +30300,35 @@ else
 end
 
 -- [main.lua feature blocks]
+do
+	local v3 = fn2(game:GetService("Players"))
+	local v4 = fn2(game:GetService("ReplicatedStorage"))
+	local v5 = fn2(game:GetService("RunService"))
+	local v6 = fn2(game:GetService("UserInputService"))
+	local v7 = fn2(game:GetService("TweenService"))
+	fn2(game:GetService("TextChatService"))
+	local v8 = fn2(game:GetService("CollectionService"))
+	fn2(game:GetService("ContextActionService"))
+	fn2(game:GetService("ProximityPromptService"))
+	fn2(game:GetService("Lighting"))
+	local v9 = fn2(game:GetService("GuiService"))
+	fn2(game:GetService("CoreGui"))
+	fn2(game:GetService("StarterGui"))
+	local v10 = fn2(game:GetService("TeleportService"))
+	local currentCamera = workspace.CurrentCamera
+	local localPlayer = v3.LocalPlayer
+	local entity = vape.Libraries.entity
+	local targetinfo = vape.Libraries.targetinfo
+	local uipallet = vape.Libraries.uipallet
+	local tween = vape.Libraries.tween
+	local color = vape.Libraries.color
+	local whitelist = vape.Libraries.whitelist
+	local prediction = vape.Libraries.prediction
+	local getfontbounds = vape.Libraries.getfontbounds
+	local getvapeasset = vape.Libraries.getvapeasset
+	local navigation = vape.Libraries.navigation
+
+
 	fn(function()
 		local swordtiming = vape.Libraries.swordtiming
 		local v11 = nil
@@ -48994,3 +49023,4 @@ end
 		v18 = v14:CreateSlider({ Name = "Volume multiplier", Min = 0.1, Max = 2, Default = 1.4, Decimal = 100 })
 	end)
 
+end
