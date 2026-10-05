@@ -48993,3 +48993,4 @@ end
 
 		v18 = v14:CreateSlider({ Name = "Volume multiplier", Min = 0.1, Max = 2, Default = 1.4, Decimal = 100 })
 	end)
+
